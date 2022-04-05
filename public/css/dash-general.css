@@ -1,0 +1,34 @@
+.add-new-button{
+	    box-shadow: 0 0 2px 2px #ddd;
+    color: white;
+    /* width: auto; */
+    display: inline-block;
+    margin-bottom: 10px;
+    background-color: #a5c926;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.green-button{
+     box-shadow: 0 0 2px 2px #ddd;
+    color: white;
+    /* width: auto; */
+    display: inline-block;
+    background-color: #a5c926;
+    padding: 7px;
+    border-radius: 4px;
+}
+
+.red-button{
+     box-shadow: 0 0 2px 2px #ddd;
+    color: white;
+    /* width: auto; */
+    display: inline-block;
+    background-color: #dc3545;
+    padding: 7px;
+    border-radius: 4px;
+}
+.data-table-actions-layout{
+    display: flex;
+    justify-content: space-evenly;
+}
