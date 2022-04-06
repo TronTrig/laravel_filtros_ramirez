@@ -211,7 +211,7 @@ class ProductosController extends Controller
     public function destroy($id)
     {
         //
-
+        
         Producto::destroy($id);
         Storage::disk('public')->deleteDirectory('images/productos/'.$id);
         $productos = Producto::all();

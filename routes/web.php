@@ -41,6 +41,19 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
+///
+Route::get('/container', function () {
+    return view('layouts.container');
+})->middleware(['auth']);
+
+Route::get('/tables', function () {
+
+    return view('layouts.tables', [
+        'productos' => Producto::all()
+    ]);
+})->middleware(['auth']);
+
+///
 
 
 
