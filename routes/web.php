@@ -48,9 +48,17 @@ Route::get('/container', function () {
 
 Route::get('/tables', function () {
 
-    return view('layouts.tables', [
-        'productos' => Producto::all()
-    ]);
+            $subcategorias = Subcategoria::all();
+        $context = [
+
+            'subcategorias' => $subcategorias,
+            'versiones' => Version::all(),
+            'modelos' => Modelo::all(),
+            'anos' => Ano::all(),
+            'marcas' => Marca::all()
+
+        ];
+        return view('layouts.tables', $context);
 })->middleware(['auth']);
 
 ///

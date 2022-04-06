@@ -13,6 +13,10 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
+                             <div>
+                                <a href="/dproductos/create" class="add-new-button">Nuevo</a>
+                            </div>
+                   
                             <h6 class="m-0 font-weight-bold text-primary"></h6>
                         </div>
                         <div class="card-body">
@@ -82,7 +86,7 @@
 
     @section('scripts')
 
-    <script src="/vendor/jquery/jquery.min.js"></script>
+
         <!-- Bootstrap core JavaScript-->
     <script src="/vendor/jquery/jquery.min.js"></script>
     <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
