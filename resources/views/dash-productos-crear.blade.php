@@ -390,7 +390,7 @@
                                  @if(isset($producto))
 
                                  <p style="color:red">
-                                     Las imágenes anteriores serán elimiandas.
+                                     Las imágenes anteriores serán eliminadas.
                                  </p>
 
                                  @endif

@@ -57,16 +57,16 @@
                                                             <a class="btn btn-secondary btn-icon-split" href="/dproductos/{{ $producto->id }}/edit">
                                                                 <span class="icon text-white-50">
                                                                     <i class="fas fa-arrow-right"></i>
-                                                                </span> <span class="text">Modificar</span>
+                                                                </span> <!-- <span class="text">Modificar</span> -->
                                                             </a>
                                                         </div>
                                                    
                                                         <div>
-                                                            <a class="btn btn-danger btn-icon-split w-100" onclick="eliminar({{ $producto->id }})">
+                                                            <a class="btn btn-danger btn-icon-split" onclick="eliminar({{ $producto->id }})">
                                                                 <span class="icon text-white-50">
                                                                     <i class="fas fa-trash"></i>
                                                                 </span>
-                                                                <span class="text">Eliminar</span>
+                                                                <!-- <span class="text">Eliminar</span> -->
                                                             </a>
                                                         </div>
                                                     </div>

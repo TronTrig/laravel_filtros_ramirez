@@ -73,8 +73,9 @@
                         <a class="collapse-item" href="/dash-subcategorias">Subcategorías</a>
                         <a class="collapse-item" href="/dash-marcas">Marcas de vehículos</a>
                         <a class="collapse-item" href="/dash-modelos">Modelos de vehículos</a>
-                        <a class="collapse-item" href="/dash-anos">Años de vehículos</a>
-                        <a class="collapse-item" href="/dash-versiones">Versiones de vehículos</a>
+                   <!--     <a class="collapse-item" href="/dash-anos">Años de vehículos</a>
+                        <a class="collapse-item" href="/dash-versiones">Versiones de vehículos</a> -->
+                        <a class="collapse-item" href="/dash-vehiculos">Vehículos</a>
 
                     </div>
                 </div>

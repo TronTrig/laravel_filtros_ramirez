@@ -74,8 +74,8 @@ class ProductosController extends Controller
             'precio' => $request->post('precio'),
             'promocionado' => ($request->post('promocionado') == '1') ? true : false ,
             'categoria_id' => $categoria_id,
-            'version_id' => $request->post('version'),
-            'ano_id' => $request->post('ano'),
+           // 'version_id' => $request->post('version'),
+           // 'ano_id' => $request->post('ano'),
             'modelo_id' => $request->post('modelo'),
             'marca_id' => $request->post('marca')
         ];
@@ -242,8 +242,8 @@ class ProductosController extends Controller
             'precio' => $request->post('precio'),
             'promocionado' => ($request->post('promocionado') == '1') ? true : false ,
             'categoria_id' => $categoria_id,
-            'version_id' => $request->post('version'),
-            'ano_id' => $request->post('ano'),
+            //'version_id' => $request->post('version'),
+          //  'ano_id' => $request->post('ano'),
             'modelo_id' => $request->post('modelo'),
             'marca_id' => $request->post('marca')
         ];

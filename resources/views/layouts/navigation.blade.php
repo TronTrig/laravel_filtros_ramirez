@@ -12,9 +12,6 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
                     
                      <x-nav-link :href="route('dash-productos')" :active="request()->routeIs('dash-productos')">
                         {{ __('Productos') }}
@@ -32,11 +29,14 @@
                     <x-nav-link :href="route('dash-modelos')" :active="request()->routeIs('dash-modelos')">
                         {{ __('Modelos') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('dash-anos')" :active="request()->routeIs('dash-anos')">
+                   <!-- <x-nav-link :href="route('dash-anos')" :active="request()->routeIs('dash-anos')">
                         {{ __('Años') }}
                     </x-nav-link>
                      <x-nav-link :href="route('dash-versiones')" :active="request()->routeIs('dash-versiones')">
                         {{ __('Versiones') }}
+                    </x-nav-link>-->
+                    <x-nav-link :href="route('dash-vehiculos')" :active="request()->routeIs('dash-vehiculos')">
+                        {{ __('Vehiculos') }}
                     </x-nav-link>
 
                 </div>

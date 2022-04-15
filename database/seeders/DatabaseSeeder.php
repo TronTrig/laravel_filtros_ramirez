@@ -23,7 +23,9 @@ class DatabaseSeeder extends Seeder
             ModeloSeeder::class,
             AnoSeeder::class,
             VersionSeeder::class,
-            ProductosSeeder::class
+            ProductosSeeder::class,
+            UserSeeder::class,
+            VehiculoSeeder::class,
         ]);
     }
 }

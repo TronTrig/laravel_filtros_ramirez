@@ -14,6 +14,7 @@ use App\Http\Controllers\ProductosController;
 use App\Http\Controllers\ModeloController;
 use App\Http\Controllers\AnoController;
 use App\Http\Controllers\VersionController;
+use App\Http\Controllers\VehiculoController;
 use App\Models\Categoria;
 use App\Models\Subcategoria;
 use App\Models\Producto;
@@ -21,6 +22,7 @@ use App\Models\Marca;
 use App\Models\Modelo;
 use App\Models\Ano;
 use App\Models\Version;
+use App\Models\Vehiculo;
 
 /*
 |--------------------------------------------------------------------------
@@ -107,6 +109,12 @@ Route::get('/dash-versiones', function(){
     ]);
 })->middleware(['auth'])->name('dash-versiones');
 
+Route::get('/dash-vehiculos', function(){
+    return view('dash-vehiculos', [
+        'vehiculos' => Vehiculo::all()
+    ]);
+})->middleware(['auth'])->name('dash-vehiculos');
+
 
 Route::post(
     '/dproductos/guardar/{id}',
@@ -135,6 +143,9 @@ Route::resource('anos', AnoController::class)
     ->middleware(['auth']);
 
 Route::resource('versiones', VersionController::class)
+    ->middleware(['auth']);
+
+Route::resource('vehiculos', VehiculoController::class)
     ->middleware(['auth']);
 
 
