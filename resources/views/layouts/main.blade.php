@@ -537,13 +537,140 @@ Compra Ahora
 </section>
 <div class="buscador-base bck-carb-fiber">
 	<div class="buscador-layout">
-		<label class="bf-label text-capitalize">Busca Tu Vehículo</label>
+		
+		
 		<form class="buscador-filtro" id="buscador-filtro" action="/buscar-por-vehiculo" method="POST">
 
 			@csrf
+			<div class="d-flex justify-content-between w-100">
+				<div>
+					<label class="bf-label text-capitalize">Buscar Filtro</label>
+				</div>
+				<div class="wrap-radio-icons-wrap">
+					<div class="radio-icons-wrap">
+						<input type="radio" name="tipo" value="automoviles ligeros">
+						<div class="radio-icon-1">
+							
+						</div>
+						<label class="">
+								Automóviles Ligeros
+						</label>
+					</div>
+					<div class="radio-icons-wrap">
+						<input type="radio" name="tipo" value="comiones y autobuses">
+						<div class="radio-icon-2">
+							
+						</div>
+						<label class="">
+								Camiones y Autobuses
+						</label>
+					</div>
+
+					<div class="radio-icons-wrap">
+						<input type="radio" name="tipo" value="vehiculos pesados y maquinas">
+						<div class="radio-icon-3">
+							
+						</div>
+						<label class="">
+								Vehículos Pesados y Máquinas
+						</label>
+					</div>
+
+					<div class="radio-icons-wrap">
+						<input type="radio" name="tipo" value="agricolas">
+						<div class="radio-icon-4">
+							
+						</div>
+						<label class="">
+								Agrícolas
+						</label>
+					</div>
+
+					<div class="radio-icons-wrap">
+						<input type="radio" name="tipo" value="marinos">
+						<div class="radio-icon-5">
+							
+						</div>
+						<label class="">
+								Marinos
+						</label>
+					</div>
+
+					<div class="radio-icons-wrap">
+						<input type="radio" name="tipo" value="otros vehiculos y maquinas">
+						<div class="radio-icon-6">
+							
+						</div>
+						<label class="">
+								Otros Vehículos y Máquinas
+						</label>
+					</div>
+
+					<div class="radio-icons-wrap">
+						<input type="radio" name="tipo" value="motocicletas">
+						<div class="radio-icon-7">
+							
+						</div>
+						<label class="">
+								Motocicletas
+						</label>
+					</div>
+
+					<div class="radio-icons-wrap">
+						<input type="radio" name="tipo" value="quads">
+						<div class="radio-icon-8">
+							
+						</div>
+						<label class="">
+								Quads
+						</label>
+					</div>
+				</div>
+			</div>
+
+			<script type="text/javascript">
+				$(function(){
+
+					$('.buscador-filtro ').find('.radio-icons-wrap').on('click', function(e){
+						e.stopPropagation();
+
+						$('.buscador-filtro ').find('.radio-icons-wrap div').removeClass('active');
+						$('.buscador-filtro ').find('.radio-icons-wrap label').css('color', '#666');
+
+						var input = $(this).find('input');
+						input.attr('checked', 'checked');
+						input.trigger('click');
+						input.siblings().first().addClass('active');
+						input.siblings('label').css('color', 'white');
+						
+					});
+
+					$('.buscador-filtro ').find('.radio-icons-wrap input').on('click', function(e){
+						e.stopPropagation();
+					});
+
+
+				});
+			</script>
+			
+		<div class="w-100 buscador-filtro-wrap-fieldset">
+
+			<fieldset id="field-codigo">
+				<input type="text" name="bf-codigo" id="bf-codigo" placeholder="Introduce código de Producto" style="">
+			</fieldset>
+
+
+			<div class="d-flex"> 
+				<div class="bf-label text-capitalize" style="margin:auto;">
+					O
+				</div>
+			</div>
+				
+				
+
 			<fieldset id="field-marca">
 				<div class="bf-select">
-					Marca <i class="fa fa-chevron-down"></i>
+					Seleccione una Marca <i class="fa fa-chevron-down"></i>
 				</div>
 				<input type="text" name="bf-marca" id="bf-marca" value="0">
 				<div class="drop-down no-display">
@@ -564,7 +691,7 @@ Compra Ahora
 			</fieldset>
 			<fieldset>
 				<div class="bf-select">
-					Modelo <i class="fa fa-chevron-down"></i>
+					Seleccione un Modelo <i class="fa fa-chevron-down"></i>
 				</div>
 				<input type="text" name="bf-modelo" id="bf-modelo" value="0">
 				<div class="drop-down no-display" id="drop-down-modelo">
@@ -577,41 +704,13 @@ Compra Ahora
 					</ul>
 				</div>
 			</fieldset>
-			<fieldset>
-				<div class="bf-select">
-					Año <i class="fa fa-chevron-down"></i>
-				</div>
-				<input type="text" name="bf-ano" id="bf-ano" value="0">
-				<div class="drop-down no-display" id="drop-down-ano">
-					<ul>
-						<li>
-							<span class="drop-li-marca" field="bf-ano" value="0">
-								Sin año 
-							</span>
-						</li>
-					</ul>
-				</div>
-			</fieldset>
-			<fieldset>
-				<div class="bf-select">
-					Versión <i class="fa fa-chevron-down"></i>
-				</div>
-				<input type="text" name="bf-version" id="bf-version" value="0">
-				<div class="drop-down no-display" id="drop-down-version">
-					<ul>
-						<li>
-							<span class="drop-li-marca" field="bf-version" value="0">
-								Sin versión
-							</span>
-						</li>
-					</ul>
-				</div>
-			</fieldset>
+
 			<div class="bf-b-layout">
 				<button class="bf-button">
 					Buscar
 				</button>
 			</div>
+		</div>
 
 		</form>
 	</div>	

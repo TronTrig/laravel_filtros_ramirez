@@ -1230,7 +1230,7 @@ footer a:hover{
 	.buscador-base .bf-label{
 	    font-family: Poppins-Medium;
 	    font-size: 20px;
-	    color: #a5c926;
+	    color: #222;
 	    font-weight: 600;
 	    /* padding: 5px; */
 	    white-space: nowrap;
@@ -1242,22 +1242,38 @@ footer a:hover{
 	}
 
 	.buscador-base .buscador-layout{
-		display: flex;
+        width: 100%;
+	    display: flex;
+	    flex-direction: column;
+	    align-items: center;
+	    justify-content: center;
+	    background-color: #a5c926;
+	    padding: 20px;
+	    border-radius: 4px;
 	}
 
 	.buscador-base .buscador-filtro{
 	    display: flex;
 	    justify-content: space-around;
-	    width: 100%;
+	    width: 80%;
 	    align-items: center;
+	    flex-direction: column;
 	}
 
+	.buscador-base .buscador-filtro .buscador-filtro-wrap-fieldset{
+		display: flex;
+		justify-content: space-around;
+		width: 100%;
+		align-items: center;
+	}
+
+	
 	.buscador-base fieldset{
     display: inline-block;
     position: relative;
     width: 30%;
     background-color: white;
-    margin-left: 20px;
+    margin-left: 10px; 
     border-radius: 20px;
     padding: 5px 10px;
     cursor: pointer;
@@ -1267,6 +1283,8 @@ footer a:hover{
 	.buscador-base input {
 		display: none;
 	}
+
+	
 
 	.buscador-base .fa {
 		position: absolute;
@@ -1282,7 +1300,7 @@ footer a:hover{
 .buscador-base .bf-button{
     margin: auto;
     color: white;
-    background-color: #a5c926;
+    background-color: #222;
     padding: 5px 10px;
     border-radius: 20px;
     height: 40px;
@@ -1324,7 +1342,7 @@ footer a:hover{
 	.buscador-base .bf-label{
 	    font-family: Poppins-Medium;
 	    font-size: 20px;
-	    color: #a5c926;
+	    color: #222;
 	    font-weight: 600;
 	    /* padding: 5px; */
 	    white-space: nowrap;
@@ -1551,3 +1569,164 @@ footer .fa:hover
 #buscador-filtro .bf-select{
 	text-transform: capitalize;
 }
+
+
+.buscador-base .radio-icons-wrap{
+    width: 100px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: -.5px;
+    height: auto;
+    cursor: pointer;
+}
+
+.buscador-base .wrap-radio-icons-wrap{
+        display: flex;
+    justify-content: space-evenly;
+    align-items: baseline;
+}
+
+.buscador-base .radio-icons-wrap label{
+	    /* font-size: 1.2rem; */
+    /* word-wrap: break-word; */
+    /* padding: 45px 0 0; */
+    /* font-size: 1.2rem; */
+    /* word-wrap: break-word; */
+    /* padding: 45px 0 0; */
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 15px;
+    letter-spacing: -.5px;
+    word-wrap: break-word;
+    display: block;
+    text-align: center;
+}
+
+.buscador-base .radio-icons-wrap img{
+
+	width: 45px;
+}
+
+
+.buscador-base .radio-icons-wrap .radio-icon-1{
+    background-image: url('/images/icons/buscador/radio1.png');
+    width: 45px;
+    background-size: cover;
+    height: 30px;
+}
+
+.buscador-base .radio-icons-wrap .radio-icon-1.active{
+	background-image: url('/images/icons/buscador/radio1_active.png');
+    width: 45px;
+    background-size: cover;
+    height: 30px;
+}
+
+.buscador-base .radio-icons-wrap .radio-icon-2{
+    background-image: url('/images/icons/buscador/radio2.png');
+    width: 45px;
+    background-size: cover;
+    height: 30px;
+}
+
+.buscador-base .radio-icons-wrap .radio-icon-2.active{
+    background-image: url('/images/icons/buscador/radio2_active.png');
+    width: 45px;
+    background-size: cover;
+    height: 30px;
+}
+
+.buscador-base .radio-icons-wrap .radio-icon-3{
+    background-image: url('/images/icons/buscador/radio3.png');
+    width: 45px;
+    background-size: cover;
+    height: 30px;
+}
+
+
+.buscador-base .radio-icons-wrap .radio-icon-3.active{
+    background-image: url('/images/icons/buscador/radio3_active.png');
+    width: 45px;
+    background-size: cover;
+    height: 30px;
+}
+
+.buscador-base .radio-icons-wrap .radio-icon-4{
+    background-image: url('/images/icons/buscador/radio4.png');
+    width: 45px;
+    background-size: cover;
+    height: 30px;
+}
+
+.buscador-base .radio-icons-wrap .radio-icon-4.active{
+    background-image: url('/images/icons/buscador/radio4_active.png');
+    width: 45px;
+    background-size: cover;
+    height: 30px;
+}
+
+.buscador-base .radio-icons-wrap .radio-icon-5{
+    background-image: url('/images/icons/buscador/radio5.png');
+    width: 45px;
+    background-size: cover;
+    height: 30px;
+}
+
+.buscador-base .radio-icons-wrap .radio-icon-5.active{
+    background-image: url('/images/icons/buscador/radio5_active.png');
+    width: 45px;
+    background-size: cover;
+    height: 30px;
+}
+
+.buscador-base .radio-icons-wrap .radio-icon-6{
+    background-image: url('/images/icons/buscador/radio6.png');
+    width: 45px;
+    background-size: cover;
+    height: 30px;
+}
+
+.buscador-base .radio-icons-wrap .radio-icon-6.active{
+    background-image: url('/images/icons/buscador/radio6_active.png');
+    width: 45px;
+    background-size: cover;
+    height: 30px;
+}
+
+.buscador-base .radio-icons-wrap .radio-icon-7{
+    background-image: url('/images/icons/buscador/radio7.png');
+    width: 45px;
+    background-size: cover;
+    height: 30px;
+}
+
+.buscador-base .radio-icons-wrap .radio-icon-7.active{
+    background-image: url('/images/icons/buscador/radio7_active.png');
+    width: 45px;
+    background-size: cover;
+    height: 30px;
+}
+
+
+.buscador-base .radio-icons-wrap .radio-icon-8{
+    background-image: url('/images/icons/buscador/radio8.png');
+    width: 45px;
+    background-size: cover;
+    height: 30px;
+}
+
+.buscador-base .radio-icons-wrap .radio-icon-8.active{
+    background-image: url('/images/icons/buscador/radio8_active.png');
+    width: 45px;
+    background-size: cover;
+    height: 30px;
+}
+
+.buscador-base fieldset #bf-codigo{
+		display: block;
+		width: 100%;
+		height: 100%;
+	}

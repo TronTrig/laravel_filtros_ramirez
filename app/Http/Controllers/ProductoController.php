@@ -233,18 +233,7 @@ class ProductoController extends Controller
 
     public function busca_por_filtro(Request $request){
 
-        if ($request->get('bf-version') != '0') {
-            
-            $version_id = $request->get('bf-version');
-            $productos = Producto::where('version_id', $version_id)->get();
-            
-        
-        }elseif ($request->get('bf-ano') != '0') {
-
-            $ano_id = $request->get('bf-ano');
-            $productos = Producto::where('ano_id', $ano_id)->get();
-
-        }elseif ($request->get('bf-modelo') != '0') {
+        if ($request->get('bf-modelo') != '0') {
 
             $modelo_id = $request->get('bf-modelo');
             $productos = Producto::where('modelo_id', $modelo_id)->get();            
@@ -260,9 +249,6 @@ class ProductoController extends Controller
 
         }
        
-        
-
-
         $categorias = Categoria::all();
         $marcas = Marca::all();
 
