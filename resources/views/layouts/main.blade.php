@@ -537,6 +537,10 @@ Compra Ahora
 </section>
 <div class="buscador-base bck-carb-fiber">
 	<style type="text/css">
+
+		@media screen and (min-width: 991px){
+
+		
 		.menu-buscadores{
          display: grid;
 		   background-color: #a5c926;
@@ -545,6 +549,22 @@ Compra Ahora
 		   margin: auto;
 		   width: 60%;
 		   grid-template-columns: repeat(4, 1fr);
+		}
+
+		}
+
+		@media screen and (max-width: 991px){
+
+		
+		.menu-buscadores{
+         display: grid;
+		   background-color: #a5c926;
+		   border-radius: 4px 4px 0px 0px;
+		   padding: 5px;
+		   margin: auto;
+		   width: 100%;
+		}
+
 		}
 
 		.menu-buscadores-tab{
