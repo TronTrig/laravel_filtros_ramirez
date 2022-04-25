@@ -8,6 +8,7 @@ use App\Models\Producto;
 use App\Models\Categoria;
 use App\Models\Subcategoria;
 use App\Models\Marca;
+use App\Models\Vehiculo;
 use Illuminate\Support\Facades\Storage;
 
 class ProductoController extends Controller
@@ -233,24 +234,44 @@ class ProductoController extends Controller
 
     public function busca_por_filtro(Request $request){
 
-        if ($request->get('bf-modelo') != '0') {
+        $categorias = Categoria::all();
+        $marcas = Marca::all();
+
+        if ($request->get('bf-codigo') != '') {
+            
+            $productos = Producto::where('sku','like', '%'.$request->get('bf-codigo').'%')->get();
+
+        }elseif ($request->get('bf-modelo') != '0') {
 
             $modelo_id = $request->get('bf-modelo');
-            $productos = Producto::where('modelo_id', $modelo_id)->get();            
+            $vehiculos = Vehiculo::where('modelo_id', $modelo_id)->get();      
+            return view('vehiculos',[
+                'vehiculos' => $vehiculos,
+                'categorias' => $categorias,
+                'marcas' => $marcas
+             ]);      
             
         }elseif ($request->get('bf-marca') != '0') {
 
             $marca_id = $request->get('bf-marca');
-            $productos = Producto::where('marca_id', $marca_id)->get();  
+            $vehiculos = Vehiculo::where('marca_id', $marca_id)->get(); 
+            return view('vehiculos',[
+                'vehiculos' => $vehiculos,
+                'categorias' => $categorias,
+                'marcas' => $marcas
+             ]);     
         
-        }elseif ($request->get('bf-marca') == '0') {
+        }elseif ($request->get('bf-tipo') != '0') {
 
-            $productos = Producto::all();
-
+            $vehiculos = Vehiculo::where('tipo','=', $request->get('bf-tipo'))->get();   
+            return view('vehiculos',[
+                'vehiculos' => $vehiculos,
+                'categorias' => $categorias,
+                'marcas' => $marcas
+             ]);     
         }
        
-        $categorias = Categoria::all();
-        $marcas = Marca::all();
+        
 
         foreach ($productos as $key => $producto) {
             $number_imgs = Storage::disk('public')->files('images/productos/'.$producto->id);

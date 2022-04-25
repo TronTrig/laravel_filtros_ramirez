@@ -55,7 +55,7 @@
 
                             <div>
                                 <x-label for="modelo_id" class="label-form"  :value="__('Modelo')" />
-                                <select name="modelo_id" id="modelo_id">
+                                <select name="modelo_id" id="modelo_id" style="text-transform: capitalize;">
                                     <option value="0"> Seleccione un Modelo</option>
 
                                     @if(isset($vehiculo))
@@ -77,9 +77,43 @@
 
                             <div>
                                 <x-label for="tipo" class="label-form"  :value="__('Tipo')" />
-                                <x-input id="tipo" class="input-form block mt-1 w-full" type="text" name="tipo" 
+                                 <select name="tipo" id="tipo">
+                                    <option value="0"> Seleccione un Modelo</option>
+                                    @php
+                                        $tipos = [
+                                            'automóviles ligeros',
+                                            'camiones y autobuses',
+                                            'vehículos pesados y máquinas',
+                                            'agrícolas',
+                                            'marinos',
+                                            'otros vehículos y máquinas',
+                                            'motocicletas',
+                                            'quads'
+                                        ];
+                                    @endphp
 
-                                    :value="(isset($vehiculo)) ? $vehiculo->tipo : ''" 
+                                    
+                                        @foreach($tipos as $tipo)
+                                            <option  
+                                            @if(isset($vehiculo))
+                                                    @if($tipo == $vehiculo->tipo)
+                                                     selected
+                                                    @endif
+                                            @endif
+                                                value="{{ $tipo }}"> {{ ucwords( $tipo ) }} 
+                                            </option>
+                                        @endforeach
+                                    
+                                </select>
+
+
+                            </div>
+
+                            <div>
+                                <x-label for="tipo_modelo" class="label-form"  :value="__('Tipo de Modelo')" />
+                                <x-input id="tipo_modelo" class="input-form block mt-1 w-full" type="text" name="tipo_modelo" 
+
+                                    :value="(isset($vehiculo)) ? $vehiculo->tipo_modelo : ''" 
 
                                     required autofocus placeholder=""/>
                             </div>
@@ -149,6 +183,7 @@
 
 <script type="text/javascript">
     $(function(){
+
 
 
         $('#marca_id').on('change', function(){

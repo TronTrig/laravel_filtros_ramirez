@@ -542,13 +542,13 @@ Compra Ahora
 		<form class="buscador-filtro" id="buscador-filtro" action="/buscar-por-vehiculo" method="POST">
 
 			@csrf
-			<div class="d-flex justify-content-between w-100">
+			<div class="d-flex justify-content-between w-100 buscador-filtro-wrap-inside">
 				<div>
 					<label class="bf-label text-capitalize">Buscar Filtro</label>
 				</div>
 				<div class="wrap-radio-icons-wrap">
 					<div class="radio-icons-wrap">
-						<input type="radio" name="tipo" value="automoviles ligeros">
+						<input type="radio" name="bf-tipo" value="automóviles ligeros">
 						<div class="radio-icon-1">
 							
 						</div>
@@ -557,7 +557,7 @@ Compra Ahora
 						</label>
 					</div>
 					<div class="radio-icons-wrap">
-						<input type="radio" name="tipo" value="comiones y autobuses">
+						<input type="radio" name="bf-tipo" value="camiones y autobuses">
 						<div class="radio-icon-2">
 							
 						</div>
@@ -567,7 +567,7 @@ Compra Ahora
 					</div>
 
 					<div class="radio-icons-wrap">
-						<input type="radio" name="tipo" value="vehiculos pesados y maquinas">
+						<input type="radio" name="bf-tipo" value="vehículos pesados y máquinas">
 						<div class="radio-icon-3">
 							
 						</div>
@@ -577,7 +577,7 @@ Compra Ahora
 					</div>
 
 					<div class="radio-icons-wrap">
-						<input type="radio" name="tipo" value="agricolas">
+						<input type="radio" name="bf-tipo" value="agrícolas">
 						<div class="radio-icon-4">
 							
 						</div>
@@ -587,7 +587,7 @@ Compra Ahora
 					</div>
 
 					<div class="radio-icons-wrap">
-						<input type="radio" name="tipo" value="marinos">
+						<input type="radio" name="bf-tipo" value="marinos">
 						<div class="radio-icon-5">
 							
 						</div>
@@ -597,7 +597,7 @@ Compra Ahora
 					</div>
 
 					<div class="radio-icons-wrap">
-						<input type="radio" name="tipo" value="otros vehiculos y maquinas">
+						<input type="radio" name="bf-tipo" value="otros vehículos y máquinas">
 						<div class="radio-icon-6">
 							
 						</div>
@@ -607,7 +607,7 @@ Compra Ahora
 					</div>
 
 					<div class="radio-icons-wrap">
-						<input type="radio" name="tipo" value="motocicletas">
+						<input type="radio" name="bf-tipo" value="motocicletas">
 						<div class="radio-icon-7">
 							
 						</div>
@@ -617,7 +617,7 @@ Compra Ahora
 					</div>
 
 					<div class="radio-icons-wrap">
-						<input type="radio" name="tipo" value="quads">
+						<input type="radio" name="bf-tipo" value="quads">
 						<div class="radio-icon-8">
 							
 						</div>
@@ -655,18 +655,8 @@ Compra Ahora
 			
 		<div class="w-100 buscador-filtro-wrap-fieldset">
 
-			<fieldset id="field-codigo">
-				<input type="text" name="bf-codigo" id="bf-codigo" placeholder="Introduce código de Producto" style="">
-			</fieldset>
+			
 
-
-			<div class="d-flex"> 
-				<div class="bf-label text-capitalize" style="margin:auto;">
-					O
-				</div>
-			</div>
-				
-				
 
 			<fieldset id="field-marca">
 				<div class="bf-select">
@@ -705,6 +695,18 @@ Compra Ahora
 				</div>
 			</fieldset>
 
+
+			<div class="d-flex"> 
+				<div class="bf-label text-capitalize" style="margin:auto;">
+					O
+				</div>
+			</div>
+				
+			<fieldset id="field-codigo">
+				<input type="text" name="bf-codigo" id="bf-codigo" placeholder="Introduce código de Producto" style="">
+			</fieldset>
+
+			
 			<div class="bf-b-layout">
 				<button class="bf-button">
 					Buscar

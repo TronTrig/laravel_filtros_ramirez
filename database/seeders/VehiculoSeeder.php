@@ -19,7 +19,20 @@ class VehiculoSeeder extends Seeder
         Vehiculo::create([
             'marca_id' => 1,
             'modelo_id' => 1,
-            'tipo' => 'camiones',
+            'tipo' => 'automóviles ligeros',
+            'tipo_modelo' => '1.1',
+            'cc' => '11',
+            'modelo_motor' => 'modelo motor',
+            'kw' => 'adawda',
+            'cv' => 'adawdaddd',
+            'ano_fabricacion' => '2020 - 2021'
+        ]);
+
+        Vehiculo::create([
+            'marca_id' => 1,
+            'modelo_id' => 1,
+            'tipo' => 'automóviles ligeros',
+            'tipo_modelo' => '1.1',
             'cc' => '11',
             'modelo_motor' => 'modelo motor',
             'kw' => 'adawda',
@@ -30,7 +43,8 @@ class VehiculoSeeder extends Seeder
         Vehiculo::create([
             'marca_id' => 1,
             'modelo_id' => 2,
-            'tipo' => 'carro',
+            'tipo' => 'automóviles ligeros',
+            'tipo_modelo' => '1.2',
             'cc' => '222',
             'modelo_motor' => 'modelo motor 2',
             'kw' => 'adawda 2',

@@ -19,6 +19,7 @@ class CreateVehiculosTable extends Migration
             $table->foreignId('marca_id')->constrained('marcas');
             $table->foreignId('modelo_id')->constrained('modelos');
             $table->string('tipo');
+            $table->string('tipo_modelo');
             $table->string('cc');
             $table->string('modelo_motor');
             $table->string('kw');

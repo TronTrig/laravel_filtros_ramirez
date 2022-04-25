@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Vehiculo;
 use App\Models\Marca;
+use App\Models\Categoria;
 
 class VehiculoController extends Controller
 {
@@ -138,5 +139,51 @@ class VehiculoController extends Controller
         ];
 
         return view('dash-vehiculos', $context);
+    }
+
+    public function ver_prodcutos_vehiculo($id)
+    {
+
+        $vehiculo = Vehiculo::find($id);
+        $productos_vehiculo = $vehiculo->productos;
+        $filtros_aire = $productos_vehiculo->where('subcategoria_id', '=', '1');
+        $filtros_aceite = $productos_vehiculo->where('subcategoria_id', '=', '2');
+        $filtros_gasolina = $productos_vehiculo->where('subcategoria_id', '=', '3');
+        $filtros_habitaculo = $productos_vehiculo->where('subcategoria_id', '=', '4');
+        $filtros_otros = $productos_vehiculo->where('subcategoria_id', '=', '5');
+
+        $numero_de_elementos = count($filtros_aire);
+        $subcategoria_con_mas_elementos = $filtros_aire;
+
+        if ($numero_de_elementos < count($filtros_aceite)) {
+            $subcategoria_con_mas_elementos = $filtros_aceite;
+        }
+
+        if ($numero_de_elementos < count($filtros_gasolina)) {
+            $subcategoria_con_mas_elementos = $filtros_gasolina;
+        }
+        
+        if ($numero_de_elementos < count($filtros_habitaculo)) {
+            $subcategoria_con_mas_elementos = $filtros_habitaculo;
+        }
+
+        if ($numero_de_elementos < count($filtros_otros)) {
+            $subcategoria_con_mas_elementos = $filtros_otros;
+        }
+
+        $context = [
+            'marcas' => Marca::all(),
+            'vehiculo' => $vehiculo,
+            'modelos' => Vehiculo::find($id)->marca->modelo,
+            'categorias' => Categoria::all(),
+            'filtros_aire' => $filtros_aire,
+            'filtros_aceite' => $filtros_aceite,
+            'filtros_gasolina' => $filtros_gasolina,
+            'filtros_habitaculo' => $filtros_habitaculo,
+            'filtros_otros' => $filtros_otros,
+            'subcategoria_con_mas_elementos' => $subcategoria_con_mas_elementos,
+        ];
+
+        return view('vehiculo', $context);
     }
 }

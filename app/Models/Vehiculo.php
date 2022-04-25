@@ -13,6 +13,7 @@ class Vehiculo extends Model
         'marca_id',
         'modelo_id',
         'tipo',
+        'tipo_modelo',
         'cc',
         'modelo_motor',
         'kw',
@@ -30,4 +31,9 @@ class Vehiculo extends Model
     {
         return $this->belongsTo(Modelo::class, 'modelo_id');
     }
+
+        public function productos()
+    {
+        return $this->belongsToMany(Producto::class, 'vehiculo_producto');
+    }    
 }

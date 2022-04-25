@@ -44,12 +44,22 @@ class SubcategoriaSeeder extends Seeder
 
         DB::table('subcategorias')->insert([
 
-            'nombre' => 'industriales',
-            'slug' => 'industriales',
+            'nombre' => 'de habítaculo',
+            'slug' => 'de-habitaculo',
             'descripcion' => 'subcategoria de filtros',
             'categoria_id' => 1
 
         ]);
+
+         DB::table('subcategorias')->insert([
+
+            'nombre' => 'de otros',
+            'slug' => 'de-otros',
+            'descripcion' => 'subcategoria de filtros',
+            'categoria_id' => 1
+
+        ]);
+
 
 
         //De Lubricantes

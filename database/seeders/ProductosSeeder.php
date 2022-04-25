@@ -25,7 +25,24 @@ class ProductosSeeder extends Seeder
             'version_id' => 1,
             'ano_id' => 1,
             'modelo_id' => 1,
-            'marca_id' => 1
+            'marca_id' => 1,
+            'sku' => 1241515
+            
+        ]);
+
+           DB::table('productos')->insert([
+            'nombre' => 'Lubricantes Cadillac Scalade 2013',
+            'descripcion' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+            'precio' => 83.00,
+            'promocionado' => 1,
+            'numero_ventas' => 10,
+            'categoria_id' => 2,
+            'subcategoria_id' => 5,
+            'version_id' => 1,
+            'ano_id' => 1,
+            'modelo_id' => 1,
+            'marca_id' => 1,
+            'sku' => 1234
             
         ]);
 
@@ -54,7 +71,8 @@ class ProductosSeeder extends Seeder
             'version_id' => 3,
             'ano_id' => 3,
             'modelo_id' => 2,
-            'marca_id' => 1
+            'marca_id' => 1,
+            'sku' => 124151
         ]);
 
          DB::table('productos')->insert([

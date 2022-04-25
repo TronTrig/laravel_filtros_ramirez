@@ -206,6 +206,12 @@ Route::get(
     [ProductoController::class, 'buscarSubCategoria']
 );
 
+Route::get('/vehiculos', function(){
+    return view('vehiculos', [
+        'vehiculos' => Vehiculo::all()
+    ]);
+})->middleware(['auth'])->name('vehiculos');
+
 
 Route::get('/marcas', [MarcaController::class, 'index']);
 
@@ -216,6 +222,8 @@ Route::get('/modelos/{modelo_id}/anos', [ModeloController::class, 'get_anos']);
 Route::get('/anos/{ano_id}/versiones', [AnoController::class, 'get_versiones']);
 
 Route::post('/buscar-por-vehiculo', [ProductoController::class, 'busca_por_filtro']);
+
+Route::get('/ver-vehiculo/{id}', [VehiculoController::class, 'ver_prodcutos_vehiculo']);
 
 
 

@@ -64,4 +64,9 @@ class Producto extends Model
     {
         return $this->belongsTo(Version::class);
     }
+
+    public function vehiculos()
+    {
+        return $this->belongsToMany(Vehiculo::class, 'vehiculo_producto');
+    }    
 }
