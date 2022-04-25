@@ -102,7 +102,7 @@
 
                                         @if(count($filtros_aire) > 0)
                                             <a href="">
-                                                <p>{{ $filtros_aire->get($i)->nombre }}</p>
+                                                <p>{{ $filtros_aire->get($i)->sku }}</p>
                                                 
                                                 <img src="/images/productos/{{  $filtros_aire->get($i)->id}}/{{  $filtros_aire->get($i)->id}}.jpg"
                                         class="img-table">                  
@@ -117,7 +117,7 @@
 
                                         @if(count($filtros_aceite) > 0)
                                             <a href="">
-                                                <p>{{ $filtros_aceite->get($i)->nombre }}</p>
+                                                <p>{{ $filtros_aceite->get($i)->sku }}</p>
                                                 
                                                 <img src="/images/productos/{{  $filtros_aceite->get($i)->id}}/{{  $filtros_aceite->get($i)->id}}.jpg"
                                         class="img-table">                  
@@ -132,7 +132,7 @@
 
                                         @if(count($filtros_gasolina) > 0)
                                             <a href="">
-                                                <p>{{ $filtros_gasolina->get($i)->nombre }}</p>
+                                                <p>{{ $filtros_gasolina->get($i)->sku }}</p>
                                                 
                                                 <img src="/images/productos/{{  $filtros_gasolina->get($i)->id}}/{{  $filtros_gasolina->get($i)->id}}.jpg"
                                         class="img-table">                  
@@ -146,7 +146,7 @@
                                     <td>
                                         @if(count($filtros_habitaculo) > 0)
                                             <a href="">
-                                                <p>{{ $filtros_habitaculo->get($i)->nombre }}</p>
+                                                <p>{{ $filtros_habitaculo->get($i)->sku }}</p>
                                                 
                                                 <img src="/images/productos/{{  $filtros_habitaculo->get($i)->id}}/{{  $filtros_habitaculo->get($i)->id}}.jpg"
                                         class="img-table">                  
@@ -162,7 +162,7 @@
 
                                         @if(count($filtros_otros) > 0)
                                             <a href="">
-                                                <p>{{ $filtros_otros->get($i)->nombre }}</p>
+                                                <p>{{ $filtros_otros->get($i)->sku }}</p>
                                                 
                                                 <img src="/images/productos/{{  $filtros_otros->get($i)->id}}/{{  $filtros_otros->get($i)->id}}.jpg"
                                         class="img-table">                  

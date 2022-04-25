@@ -536,6 +536,61 @@ Compra Ahora
 </div>
 </section>
 <div class="buscador-base bck-carb-fiber">
+	<style type="text/css">
+		.menu-buscadores{
+         display: grid;
+		   background-color: #a5c926;
+		   border-radius: 4px 4px 0px 0px;
+		   padding: 5px;
+		   margin: auto;
+		   width: 60%;
+		   grid-template-columns: repeat(4, 1fr);
+		}
+
+		.menu-buscadores-tab{
+		    font-family: Poppins-Medium;
+		    font-size: 20px;
+		    color: #fff;
+		    font-weight: 600;
+		    /* padding: 5px; */
+		    white-space: nowrap;
+		    text-align: center;
+		    display: inline-block;
+		    padding: 20px;
+
+		}
+
+		.menu-buscadores-tab.active{
+			color: #222;
+		}
+
+		.menu-buscadores-tab.non-active{
+			background-color: #222;
+
+		}
+	</style>
+	<div class="menu-buscadores"> 
+		<div class="menu-buscadores-tab active">
+			<div>
+				Aplicaciones
+			</div>
+		</div>
+		<div class="menu-buscadores-tab non-active">
+			<div>
+				Medidas
+			</div>
+		</div>
+		<div class="menu-buscadores-tab non-active">
+			<div>
+				Aplicaciones
+			</div>
+		</div>
+		<div class="menu-buscadores-tab non-active">
+			<div>
+				Aplicaciones
+			</div>
+		</div>
+	</div>
 	<div class="buscador-layout">
 		
 		
