@@ -22,6 +22,13 @@
     <link href="/css/sb-admin-2.css" rel="stylesheet">
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <style type="text/css">
+        .card-body #dataTable .data-table-actions-layout{
+            display: flex;
+            justify-content: center;
+        }
+    </style>
 </head>
 
 <body id="page-top">
@@ -46,7 +53,7 @@
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
                 <a class="nav-link" href="/dashboard">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <i class="fas fa-fw fa-home"></i>
                     <span>Inicio</span></a>
             </li>
 
@@ -73,8 +80,6 @@
                         <a class="collapse-item" href="/dash-subcategorias">Subcategorías</a>
                         <a class="collapse-item" href="/dash-marcas">Marcas de vehículos</a>
                         <a class="collapse-item" href="/dash-modelos">Modelos de vehículos</a>
-                   <!--     <a class="collapse-item" href="/dash-anos">Años de vehículos</a>
-                        <a class="collapse-item" href="/dash-versiones">Versiones de vehículos</a> -->
                         <a class="collapse-item" href="/dash-vehiculos">Vehículos</a>
 
                     </div>
@@ -272,7 +277,7 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small text-capitalize">{{ Auth::user()->name }}</span>
                                 <img class="img-profile rounded-circle"
-                                    src="images/undraw_profile.svg">
+                                    src="/images/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"

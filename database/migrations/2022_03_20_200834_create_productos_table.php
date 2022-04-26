@@ -18,7 +18,6 @@ class CreateProductosTable extends Migration
             $table->timestamps();
             $table->string('id_sistema_administrativo')->unique()->nullable();
             $table->string('sku')->unique()->nullable();
-            $table->string('id_numero_parte')->unique()->nullable();
             $table->string('nombre')->unique();
             $table->text('descripcion');
             $table->text('caracteristicas')->nullable();
@@ -30,8 +29,6 @@ class CreateProductosTable extends Migration
   
             $table->foreignId('categoria_id')->constrained('categorias')->nullable();
             $table->foreignId('subcategoria_id')->constrained('subcategorias');
-            $table->foreignId('version_id')->constrained('versions')->nullable();
-            $table->foreignId('ano_id')->constrained('anos')->nullable();
             $table->foreignId('modelo_id')->constrained('modelos')->nullable();
             $table->foreignId('marca_id')->constrained('marcas')->nullable();
 

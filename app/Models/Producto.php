@@ -8,8 +8,6 @@ use App\Models\Categoria;
 use App\Models\Subcategoria;
 use App\Models\Marca;
 use App\Models\Modelo;
-use App\Models\Ano;
-use App\Models\Version;
 
 class Producto extends Model
 {
@@ -28,8 +26,6 @@ class Producto extends Model
         'dimensiones',
         'precio',
         'promocionado',
-        'version_id',
-        'ano_id',
         'modelo_id',
         'marca_id'
 
@@ -53,16 +49,6 @@ class Producto extends Model
     public function modelo()
     {
         return $this->belongsTo(Modelo::class);
-    }
-
-    public function ano()
-    {
-        return $this->belongsTo(Ano::class);
-    }
-
-    public function version()
-    {
-        return $this->belongsTo(Version::class);
     }
 
     public function vehiculos()

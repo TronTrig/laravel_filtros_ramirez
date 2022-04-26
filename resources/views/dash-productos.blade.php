@@ -56,7 +56,7 @@
                                                         <div>
                                                             <a class="btn btn-secondary btn-icon-split" href="/dproductos/{{ $producto->id }}/edit">
                                                                 <span class="icon text-white-50">
-                                                                    <i class="fas fa-arrow-right"></i>
+                                                                    <i class="fas fa-pen"></i>
                                                                 </span> <!-- <span class="text">Modificar</span> -->
                                                             </a>
                                                         </div>

@@ -1,74 +1,109 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Subcategorias De Productos') }}
-        </h2>
-    </x-slot>
+               @extends('layouts.container')
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
+               @section('title', 'Subcategorias')
 
+               @section('content')
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
 
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Subcategorias</h1>
+                    <p class="mb-4">Lista de todas las Subcategorias registradas en la tienda en línea.</p>
 
-                     <div>
-                        <a href="/subcategorias/create" class="add-new-button">Nueva</a>
-                    </div>
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                             <div>
+                                <a href="/subcategorias/create" class="add-new-button">Nuevo</a>
+                            </div>
                    
-                    <table id="table_id">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Subcategoría</th>
-                                <th>Categoria</th>
-                                <th>Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            @foreach($subcategorias as $subcategoria)
+                            <h6 class="m-0 font-weight-bold text-primary"></h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                           <th>ID</th>
+                                            <th>Subcategoría</th>
+                                            <th>Categoria</th>
+                                            <th>Acciones</th>
+                                                    </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Subcategoría</th>
+                                            <th>Categoria</th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                       @foreach($subcategorias as $subcategoria)
 
                             <tr>
                                 <td>{{ $subcategoria->id }}</td>
                                 <td>{{ ucwords($subcategoria->nombre) }}</td>
                                 <td>{{ ucwords($subcategoria->categoria->nombre) }}</td>
                                 <td>
-                                    <div class="data-table-actions-layout">
-                                        <div class="green-button">
-                                            <a href="/subcategorias/{{ $subcategoria->id }}/edit">Modificar</a>
-                                        </div>
-                                        <div class="red-button">
-                                            <a style="cursor:pointer;" class="eliminar" onclick="eliminar({{ $subcategoria->id }})">Eliminar</a>
-                                        </div>
-                                    </div>
-                                </td>
+                                                    <div class="data-table-actions-layout">
+                                                    
+                                                        <div>
+                                                            <a class="btn btn-secondary btn-icon-split" href="/subcategorias/{{ $subcategoria->id }}/edit">
+                                                                <span class="icon text-white-50">
+                                                                    <i class="fas fa-pen"></i>
+                                                                </span> <!-- <span class="text">Modificar</span> -->
+                                                            </a>
+                                                        </div>
+                                                   
+                                                        <div>
+                                                            <a class="btn btn-danger btn-icon-split" onclick="eliminar({{ $subcategoria->id }})">
+                                                                <span class="icon text-white-50">
+                                                                    <i class="fas fa-trash"></i>
+                                                                </span>
+                                                                <!-- <span class="text">Eliminar</span> -->
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </td>
                             </tr>
 
                             @endforeach
-
-                        </tbody>
-                    </table>
-
-
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
-            </div>
-        </div>
-    </div>
-</x-app-layout>
+                <!-- /.container-fluid -->
+
+        @endsection
+
+    @section('scripts')
 
 
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+        <!-- Bootstrap core JavaScript-->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-<script type="text/javascript">
-    $(document).ready( function () {
-        $('#table_id').DataTable( {
-            "iDisplayLength": 50
-        });
-    } );
-</script>
+    <!-- Core plugin JavaScript-->
+    <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    
+
+
+    <!-- Custom styles for this page -->
+    <link href="/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+
+    <!-- Page level plugins -->
+    <script src="/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="/js/demo/datatables-demo.js"></script>
+
 
 <link rel="stylesheet" type="text/css" href="/css/dash-categorias.css">
 
@@ -91,3 +126,5 @@
         }
 
 </script>
+
+    @endsection

@@ -1,17 +1,22 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Crear Modelos De Vehículos') }}
-        </h2>
-    </x-slot>
+@extends('layouts.container')
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+@section('title', 'Crear Modelo')
+
+@section('content')
+
+    <div class="container-fluid">
+        <!-- Page Heading --> 
+        <h1 class="h3 mb-2 text-gray-800">Crear Modelo</h1>
+        <p class="mb-4">Formulario para la creación de nuevos modelos.</p>
+
+        <!-- contenido -->
+                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     
-                    <div style="display:flex; justify-content: center;">
+                    <div style="width: 60%; margin: auto;">
                         
+  
                         <form method="POST" action="/modelos" name="crear" id="crear">
                            @csrf
 
@@ -34,7 +39,9 @@
 
                             <div>
                                 <x-label for="marca" class="label-form"  :value="__('Categorias')" />
-                                <select id="marca" name="marca">
+                                <select id="marca" name="marca" class="shadow-sm border-gray-300 rounded-md w-full">
+
+                                    <option> Selecciona una Marca</option>
 
                                     @foreach($marcas as $marca)
 
@@ -63,7 +70,24 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+
+@endsection
+@section('scripts')
+    
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+     <!-- Styles -->
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <style type="text/css">
+                   form label {
+                    font-weight: 900 !important;
+                   }
+               </style>
 @if(isset($modelo))
 
     <script type="text/javascript">
@@ -98,3 +122,5 @@
     </script>
 
 @endif
+
+@endsection

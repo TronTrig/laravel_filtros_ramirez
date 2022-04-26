@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Modelo;
 use App\Models\Marca;
-use App\Models\Ano;
 
 class ModeloController extends Controller
 {
@@ -143,11 +142,4 @@ class ModeloController extends Controller
         return view('dash-modelos', $context);
     }
 
-    public function get_anos($modelo_id)
-    {
-        $anos = Ano::where('modelo_id', $modelo_id)->get();
-        return response()->json([
-            'anos' => $anos
-        ]);
-    }
 }

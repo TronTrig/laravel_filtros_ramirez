@@ -29,12 +29,6 @@
                     <x-nav-link :href="route('dash-modelos')" :active="request()->routeIs('dash-modelos')">
                         {{ __('Modelos') }}
                     </x-nav-link>
-                   <!-- <x-nav-link :href="route('dash-anos')" :active="request()->routeIs('dash-anos')">
-                        {{ __('Años') }}
-                    </x-nav-link>
-                     <x-nav-link :href="route('dash-versiones')" :active="request()->routeIs('dash-versiones')">
-                        {{ __('Versiones') }}
-                    </x-nav-link>-->
                     <x-nav-link :href="route('dash-vehiculos')" :active="request()->routeIs('dash-vehiculos')">
                         {{ __('Vehiculos') }}
                     </x-nav-link>

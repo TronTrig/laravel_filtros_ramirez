@@ -21,8 +21,6 @@ class DatabaseSeeder extends Seeder
             SubcategoriaSeeder::class,
             MarcaSeeder::class,
             ModeloSeeder::class,
-            AnoSeeder::class,
-            VersionSeeder::class,
             ProductosSeeder::class,
             UserSeeder::class,
             VehiculoSeeder::class,

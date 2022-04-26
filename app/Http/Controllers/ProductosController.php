@@ -40,9 +40,7 @@ class ProductosController extends Controller
         $context = [
 
             'subcategorias' => $subcategorias,
-            'versiones' => Version::all(),
             'modelos' => Modelo::all(),
-            'anos' => Ano::all(),
             'marcas' => Marca::all()
 
         ];
@@ -64,7 +62,6 @@ class ProductosController extends Controller
         $data = [
             'sku' => $request->post('sku'),
             'id_sistema_administrativo' => $request->post('id-sistema-administrativo'),
-            'id_numero_parte' => $request->post('numero-parte'),
             'nombre' => $request->post('nombre'),
             'subcategoria_id' => $request->post('subcategoria'),
             'descripcion' => $request->post('descripcion'),
@@ -74,8 +71,6 @@ class ProductosController extends Controller
             'precio' => $request->post('precio'),
             'promocionado' => ($request->post('promocionado') == '1') ? true : false ,
             'categoria_id' => $categoria_id,
-           // 'version_id' => $request->post('version'),
-           // 'ano_id' => $request->post('ano'),
             'modelo_id' => $request->post('modelo'),
             'marca_id' => $request->post('marca')
         ];
@@ -134,9 +129,7 @@ class ProductosController extends Controller
         $context = [
 
             'subcategorias' => $subcategorias,
-            'versiones' => Version::all(),
             'modelos' => Modelo::all(),
-            'anos' => Ano::all(),
             'marcas' => Marca::all(),
             'producto' => $producto
 
@@ -229,10 +222,9 @@ class ProductosController extends Controller
 
         
         $categoria_id = Subcategoria::find($request->post('subcategoria'))->categoria->id;
-       $data = [
+        $data = [
             'sku' => $request->post('sku'),
             'id_sistema_administrativo' => $request->post('id-sistema-administrativo'),
-            'id_numero_parte' => $request->post('numero-parte'),
             'nombre' => $request->post('nombre'),
             'subcategoria_id' => $request->post('subcategoria'),
             'descripcion' => $request->post('descripcion'),
@@ -249,15 +241,22 @@ class ProductosController extends Controller
         ];
         Producto::find($id)->update($data);
 
-            Storage::disk('public')->deleteDirectory('images/productos/'.$id);
-            //$id = 23;
-            $i = 0;
-           foreach($request->file('imagenes') as $file)
-            {   
-               // dd($file);
-                $i++;
-                $nombre = $i.'.jpg' ;
-                $file->storeAs('/images/productos/'.$id, $nombre , 'public');
+            if (!empty($request->file('imagenes'))) {
+                
+                Storage::disk('public')->deleteDirectory('images/productos/'.$id);
+                //$id = 23;
+                $i = 0;
+
+            
+            
+               foreach($request->file('imagenes') as $file)
+                {   
+                   // dd($file);
+                    $i++;
+                    $nombre = $i.'.jpg' ;
+                    $file->storeAs('/images/productos/'.$id, $nombre , 'public');
+                }
+
             }
 
 //             dd($request);

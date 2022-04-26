@@ -15,10 +15,7 @@ class Modelo extends Model
         'nombre',
         'marca_id'
     ];
-    public function ano()
-    {
-        return $this->hasMany(Ano::class);
-    }
+ 
 
     public function marca()
     {

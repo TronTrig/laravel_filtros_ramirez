@@ -12,16 +12,12 @@ use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\SubcategoriaController;
 use App\Http\Controllers\ProductosController;
 use App\Http\Controllers\ModeloController;
-use App\Http\Controllers\AnoController;
-use App\Http\Controllers\VersionController;
 use App\Http\Controllers\VehiculoController;
 use App\Models\Categoria;
 use App\Models\Subcategoria;
 use App\Models\Producto;
 use App\Models\Marca;
 use App\Models\Modelo;
-use App\Models\Ano;
-use App\Models\Version;
 use App\Models\Vehiculo;
 
 /*
@@ -54,9 +50,7 @@ Route::get('/tables', function () {
         $context = [
 
             'subcategorias' => $subcategorias,
-            'versiones' => Version::all(),
             'modelos' => Modelo::all(),
-            'anos' => Ano::all(),
             'marcas' => Marca::all()
 
         ];
@@ -97,18 +91,6 @@ Route::get('/dash-modelos', function(){
     ]);
 })->middleware(['auth'])->name('dash-modelos');
 
-Route::get('/dash-anos', function(){
-    return view('dash-anos', [
-        'anos' => Ano::all()
-    ]);
-})->middleware(['auth'])->name('dash-anos');
-
-Route::get('/dash-versiones', function(){
-    return view('dash-versiones', [
-        'versiones' => Version::all()
-    ]);
-})->middleware(['auth'])->name('dash-versiones');
-
 Route::get('/dash-vehiculos', function(){
     return view('dash-vehiculos', [
         'vehiculos' => Vehiculo::all()
@@ -137,12 +119,6 @@ Route::resource('marcas', MarcaController::class)
     ->middleware(['auth']);
 
 Route::resource('modelos', ModeloController::class)
-    ->middleware(['auth']);
-
-Route::resource('anos', AnoController::class)
-    ->middleware(['auth']);
-
-Route::resource('versiones', VersionController::class)
     ->middleware(['auth']);
 
 Route::resource('vehiculos', VehiculoController::class)
@@ -217,9 +193,6 @@ Route::get('/marcas', [MarcaController::class, 'index']);
 
 Route::get('/marcas/{marca_id}/modelos', [MarcaController::class, 'get_models']);
 
-Route::get('/modelos/{modelo_id}/anos', [ModeloController::class, 'get_anos']);
-
-Route::get('/anos/{ano_id}/versiones', [AnoController::class, 'get_versiones']);
 
 Route::post('/buscar-por-vehiculo', [ProductoController::class, 'busca_por_filtro']);
 
