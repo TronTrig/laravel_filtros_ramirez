@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.busqueda')
 @section('page_title', 'Vehículo')
 @section('content')
 
@@ -69,6 +69,27 @@
 	#table_id{
 		border: 1px solid #111;
 	}
+
+    #table_id th{
+           font-family: Poppins-Regular;
+    font-size: 1.2rem;
+    color: #888;
+    line-height: 1.2;
+
+    }
+
+    #table_id td a{
+        font-family: Poppins-Regular;
+        font-size: 20px;
+        line-height: 1.923;
+        color: #a5c926;
+        transition: ease .4s;
+    }
+
+    #table_id td a:hover{
+        color: #222;
+    }
+
 </style>
 
 @endsection

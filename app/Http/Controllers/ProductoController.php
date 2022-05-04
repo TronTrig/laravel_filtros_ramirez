@@ -184,7 +184,7 @@ class ProductoController extends Controller
 
     }
 
-    public function buscar(Request $request)
+    public function buscar(Request $request) 
     {
 
         if ( strpos($request->post('search-category'), '|')) {
@@ -236,10 +236,19 @@ class ProductoController extends Controller
 
         $categorias = Categoria::all();
         $marcas = Marca::all();
+      //  dd('aa');
 
         if ($request->get('bf-codigo') != '') {
             
             $productos = Producto::where('sku','like', '%'.$request->get('bf-codigo').'%')->get();
+
+            return view('resultados-codigo',[
+
+                'productos' => $productos,
+                'categorias' => $categorias,
+                'marcas' => $marcas
+
+            ]);
 
         }elseif ($request->get('bf-modelo') != '0') {
 

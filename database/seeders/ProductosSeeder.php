@@ -22,8 +22,6 @@ class ProductosSeeder extends Seeder
             'numero_ventas' => 10,
             'categoria_id' => 2,
             'subcategoria_id' => 5,
-            'modelo_id' => 1,
-            'marca_id' => 1,
             'sku' => 1241515
             
         ]);
@@ -36,8 +34,6 @@ class ProductosSeeder extends Seeder
             'numero_ventas' => 10,
             'categoria_id' => 2,
             'subcategoria_id' => 5,
-            'modelo_id' => 1,
-            'marca_id' => 1,
             'sku' => 1234
             
         ]);
@@ -50,8 +46,6 @@ class ProductosSeeder extends Seeder
             'precio' => 183.00,
             'promocionado' => 0,
             'numero_ventas' => 20,
-            'modelo_id' => 2,
-            'marca_id' => 1
         ]);
 
         DB::table('productos')->insert([
@@ -62,8 +56,6 @@ class ProductosSeeder extends Seeder
             'precio' => 13.00,
             'promocionado' => 1,
             'numero_ventas' => 23,
-            'modelo_id' => 2,
-            'marca_id' => 1,
             'sku' => 124151
         ]);
 
@@ -75,8 +67,6 @@ class ProductosSeeder extends Seeder
             'precio' => 193.00,
             'promocionado' => 1,
             'numero_ventas' => 3,
-            'modelo_id' => 2,
-            'marca_id' => 1
         ]);
 
          DB::table('productos')->insert([
@@ -87,8 +77,6 @@ class ProductosSeeder extends Seeder
             'precio' => 93.00,
             'promocionado' => 1,
             'numero_ventas' => 4,
-            'modelo_id' => 3,
-            'marca_id' => 1
         ]);
 
          DB::table('productos')->insert([
@@ -99,8 +87,6 @@ class ProductosSeeder extends Seeder
             'precio' => 23.00,
             'promocionado' => 1,
             'numero_ventas' => 1,
-            'modelo_id' => 4,
-            'marca_id' => 1
         ]);
 
 
@@ -112,8 +98,6 @@ class ProductosSeeder extends Seeder
             'precio' => 13.00,
             'promocionado' => 1,
             'numero_ventas' => 1,
-            'modelo_id' => 5,
-            'marca_id' => 1
         ]);
 
         DB::table('productos')->insert([
@@ -124,8 +108,6 @@ class ProductosSeeder extends Seeder
             'precio' => 213.00,
             'promocionado' => 0,
             'numero_ventas' => 0,
-            'modelo_id' => 6,
-            'marca_id' => 2
         ]);
 
 

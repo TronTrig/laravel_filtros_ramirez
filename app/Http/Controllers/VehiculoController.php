@@ -186,4 +186,13 @@ class VehiculoController extends Controller
 
         return view('vehiculo', $context);
     }
+
+
+    public function get_versiones_by_model( Request $request, $id)
+    {
+
+        return response()->json([
+            'versiones' => Vehiculo::where('modelo_id', '=', $id)->get(),
+        ]);
+    }
 }

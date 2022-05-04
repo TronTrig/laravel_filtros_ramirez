@@ -122,7 +122,7 @@
                 success: function(response){
                     console.log(response)
 
-                    window.location.replace('/dash-productos');
+                   window.location.replace('/dash-productos');
                 }
             });
         }

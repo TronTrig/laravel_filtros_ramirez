@@ -193,6 +193,8 @@ Route::get('/marcas', [MarcaController::class, 'index']);
 
 Route::get('/marcas/{marca_id}/modelos', [MarcaController::class, 'get_models']);
 
+Route::get('/modelos/{modelo_id}/versiones', [VehiculoController::class, 'get_versiones_by_model']);
+
 
 Route::post('/buscar-por-vehiculo', [ProductoController::class, 'busca_por_filtro']);
 

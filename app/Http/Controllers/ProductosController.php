@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Producto;
 use App\Models\Subcategoria;
-use App\Models\Version;
-use App\Models\Ano;
 use App\Models\Modelo;
 use App\Models\Marca;
 use Illuminate\Support\Facades\Storage;
@@ -57,6 +55,8 @@ class ProductosController extends Controller
     {
         //
 
+    
+
 
         $categoria_id = Subcategoria::find($request->post('subcategoria'))->categoria->id;
         $data = [
@@ -71,11 +71,19 @@ class ProductosController extends Controller
             'precio' => $request->post('precio'),
             'promocionado' => ($request->post('promocionado') == '1') ? true : false ,
             'categoria_id' => $categoria_id,
-            'modelo_id' => $request->post('modelo'),
-            'marca_id' => $request->post('marca')
+           // 'modelo_id' => $request->post('modelo'),
+         //   'marca_id' => $request->post('marca')
         ];
 
         $id = Producto::create($data)->id;
+
+        if (!empty($id)) {
+            
+          
+            Producto::find($id)->vehiculos()->attach($request->post('relacion'));
+            
+
+        }
             //$id = 23;
             $i = 0;
             foreach($request->file('imagenes') as $file)
@@ -204,7 +212,14 @@ class ProductosController extends Controller
     public function destroy($id)
     {
         //
-        
+        $detach = [];
+
+        foreach(Producto::find($id)->vehiculos as $vehiculo){
+
+            $detach[] = $vehiculo->id;    
+        }
+
+        Producto::find($id)->vehiculos()->detach($detach);
         Producto::destroy($id);
         Storage::disk('public')->deleteDirectory('images/productos/'.$id);
         $productos = Producto::all();
@@ -236,10 +251,19 @@ class ProductosController extends Controller
             'categoria_id' => $categoria_id,
             //'version_id' => $request->post('version'),
           //  'ano_id' => $request->post('ano'),
-            'modelo_id' => $request->post('modelo'),
-            'marca_id' => $request->post('marca')
+           // 'modelo_id' => $request->post('modelo'),
+           // 'marca_id' => $request->post('marca')
         ];
         Producto::find($id)->update($data);
+
+        if (!empty($id)) {
+            //Attach not already attached without detachin
+            //roducto::find($id)->vehiculos()->syncWithoutDetaching($relacion);
+
+            //Attach not already attached with detachin
+            Producto::find($id)->vehiculos()->sync($request->post('relacion'));
+
+        }
 
             if (!empty($request->file('imagenes'))) {
                 

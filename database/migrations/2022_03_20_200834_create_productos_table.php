@@ -29,8 +29,8 @@ class CreateProductosTable extends Migration
   
             $table->foreignId('categoria_id')->constrained('categorias')->nullable();
             $table->foreignId('subcategoria_id')->constrained('subcategorias');
-            $table->foreignId('modelo_id')->constrained('modelos')->nullable();
-            $table->foreignId('marca_id')->constrained('marcas')->nullable();
+           // $table->foreignId('modelo_id')->constrained('modelos')->nullable();
+           // $table->foreignId('marca_id')->constrained('marcas')->nullable();
 
             $table->index('id');
 

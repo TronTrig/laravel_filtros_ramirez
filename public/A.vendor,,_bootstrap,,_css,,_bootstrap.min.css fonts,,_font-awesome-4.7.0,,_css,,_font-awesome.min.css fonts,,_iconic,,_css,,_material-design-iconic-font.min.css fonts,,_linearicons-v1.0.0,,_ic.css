@@ -1235,7 +1235,7 @@ footer a:hover{
 	    /* padding: 5px; */
 	    white-space: nowrap;
 	    text-align: center;
-	    margin-right: 25px;
+	    margin-left: 3px;
 	    display: inline-block;
 	    padding-top: 7px;
 	    padding-left: 7px;
@@ -1545,6 +1545,11 @@ footer .fa:hover
         display: flex;
 	    justify-content: space-evenly;
 	    align-items: baseline;
+	    width: 80%;
+	}
+
+	#field-codigo{
+   		min-width: 320px;
 	}
 }
 
@@ -1588,11 +1593,12 @@ footer .fa:hover
 
 #buscador-filtro .bf-select{
 	text-transform: capitalize;
+	padding-left: 8px;
 }
 
 
 .buscador-base .radio-icons-wrap{
-    width: 100px;
+    width: 110px;
     padding: 5px;
     display: flex;
     flex-direction: column;
@@ -1617,7 +1623,9 @@ footer .fa:hover
     line-height: 15px;
     letter-spacing: -.5px;
     word-wrap: break-word;
-    display: block;
+    display: block;element.style {
+    min-width: 320px;
+}
     text-align: center;
 }
 
@@ -1745,6 +1753,7 @@ footer .fa:hover
 		display: block;
 		width: 100%;
 		height: 100%;
+		padding-left: 8px;
 	}
 
 .tabla-vehiculos-layout{

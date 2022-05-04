@@ -119,12 +119,13 @@ Contacto
 @endauth
     
 @guest
-   <a href="{{ url('') }}/login" class="flex-c-m p-lr-10 trans-04">
+   <a href="" class="flex-c-m p-lr-10 trans-04">
 	Ingresar
 	</a>
-	<a href="{{ url('') }}/register" class="flex-c-m p-lr-10 trans-04">
+	<a href="" class="flex-c-m p-lr-10 trans-04">
 	Registrarse
 	</a>
+
 @endguest
 
 
@@ -309,10 +310,10 @@ Contacto
 @endauth
     
 @guest
-	<a href="{{ url('') }}/login" class="flex-c-m p-lr-10 trans-04">
+	<a href="" class="flex-c-m p-lr-10 trans-04">
 	Ingresar
 	</a>
-	<a href="{{ url('') }}/register" class="flex-c-m p-lr-10 trans-04">
+	<a href="" class="flex-c-m p-lr-10 trans-04">
 	Registrarse
 	</a>
 
@@ -456,85 +457,10 @@ Comprar
 </div>
 </div>
 
-<section class="section-slide">
-<div class="wrap-slick1">
-<div class="slick1">
-<div class="item-slick1" style="background-image:url('{{ url('') }}/images/banner/fachada.jpeg')">
-<div class="container h-full">
-<div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
+<div style="width:100%; height:104px;">
+	
+</div>
 
-<div class="layer-slick1 animated visible-false" data-appear="fadeInUp" data-delay="800">
-<!-- <h2 class="ltext-201 cl2 p-t-19 p-b-43 respon1">
-Bienvenidos
-</h2> -->
-</div>
-<div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="0" style="text-align: center;
-	 background-color: #a5c926;
-    padding: 10px;
-    border-radius: 4px;
-    opacity: 0.2;
-    max-width: 50%;
-    text-align: center;
-    margin: 0px auto;">
-<span class="ltext-101 cl2  respon2">
-<!-- Nuestra tienda online les facilitará conocer toda nuestra gama de productos automotrices al mejor precio del mercado.  -->
-Ven, visitanos en la Urb. Industrial Castillito. 
-</span>
-</div>
-<div class="layer-slick1 animated visible-false" data-appear="zoomIn" data-delay="1600">
-<!-- <a href="{{ url('') }}/#" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
-Compra Ahora 
-</a>-->
-</div>
-</div>
-</div>
-</div>
-<div class="item-slick1" style="background-image:url('{{ url('') }}/images/banner/wix-variedad.jpg'); background-size: cover;">
-<div class="container h-full">
-<div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
-<div class="layer-slick1 animated visible-false" data-appear="rollIn" data-delay="0">
-<span class="ltext-101 cl2 respon2">
-<!-- Texto para comentario en banner -->
-
-</span>
-</div>
-<div class="layer-slick1 animated visible-false" data-appear="lightSpeedIn" data-delay="800">
-<h2 class="ltext-201 cl2 p-t-19 p-b-43 respon1">
-<!-- Texto para el titulo del banner -->
-</h2>
-</div>
-<div class="layer-slick1 animated visible-false" data-appear="slideInUp" data-delay="1600">
-<!-- <a href="{{ url('') }}/#" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
-Compra Ahora
-</a> -->
-</div>
-</div>
-</div>
-</div>
-<div class="item-slick1" style="background-image:url('{{ url('') }}/images/banner/sky-edited.png');background-size: cover; ">
-<div class="container h-full">
-<div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
-<div class="layer-slick1 animated visible-false" data-appear="rotateInDownLeft" data-delay="0">
-<span class="ltext-101 cl2 respon2">
-<!-- Men Collection 2018 -->
-</span>
-</div>
-<div class="layer-slick1 animated visible-false" data-appear="rotateInUpRight" data-delay="800">
-<h2 class="ltext-201 cl2 p-t-19 p-b-43 respon1">
-<!-- New arrivals -->
-</h2>
-</div>
-<div class="layer-slick1 animated visible-false" data-appear="rotateIn" data-delay="1600">
-<!-- <a href="{{ url('') }}/product.html" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
-Compra Ahora
-</a> -->
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
 <div class="buscador-base bck-carb-fiber">
 	<style type="text/css">
 
@@ -965,6 +891,7 @@ Administración
 		</a>
 	</li>	
 </ul>
+
 </div>
 <div class="col-sm-6 col-lg-4 p-b-50">
 <h4 class="  p-b-30">

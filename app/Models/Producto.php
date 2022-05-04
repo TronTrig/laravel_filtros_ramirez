@@ -26,8 +26,8 @@ class Producto extends Model
         'dimensiones',
         'precio',
         'promocionado',
-        'modelo_id',
-        'marca_id'
+       // 'modelo_id',
+       // 'marca_id'
 
     ];
 

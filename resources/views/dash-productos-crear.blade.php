@@ -1,8 +1,8 @@
-               @extends('layouts.container')
+       @extends('layouts.container')
 
-               @section('title', 'Crear Producto')
+       @section('title', 'Crear Producto')
 
-               @section('content')
+       @section('content')
 
       <div class="container-fluid">
 
@@ -104,55 +104,8 @@
                                     @endforeach
                                 </select>
                             </div>
-                             <div class="mt-3">
-                                <x-label for="marca" class="label-form"  :value="__('Marcas')" />
-                                <select name="marca" id="marca" class="shadow-sm border-gray-300 rounded-md w-full">
-                                    <option value="0"> Selecciona una Marca</option>
-                                    @foreach($marcas as $marca)
 
-                                        <option 
-                                        @if(isset($producto))
-                                            @if($marca->id == $producto->marca->id)
-                                                selected 
-                                            @endif
-                                        @endif
-
-                                        value="{{ $marca->id }}"> {{ ucwords($marca->nombre) }} </option>
-                                    
-                                    @endforeach
-                                </select>
-                            </div>
-
-
-                            @if(isset($producto))
-                                <div class="mt-3">
-                                <x-label for="modelo" class="label-form"  :value="__('Modelos')" />
-                                    <select name="modelo" id="modelo" class="shadow-sm border-gray-300 rounded-md w-full">
-                                        <option value="0"> Selecciona un Modelo</option>
-                                        @foreach($modelos as $modelo)
-
-                                            <option 
-                                            @if(isset($producto))
-                                                @if($modelo->id == $producto->modelo->id)
-                                                    selected 
-                                                @endif
-                                            @endif
-
-                                            value="{{ $modelo->id }}"> {{ ucwords($modelo->nombre) }} </option>
-                                    
-                                         @endforeach
-                                    </select>
-                                </div>
-                            @else
-                            <div class="mt-3">
-                                <x-label for="modelo" class="label-form"  :value="__('Modelos')" />
-                                <select name="modelo" id="modelo" class="shadow-sm border-gray-300 rounded-md w-full">
-                                    <option value="0"> Selecciona un Modelo</option>
-
-                                </select>
-                            </div>
-                            @endif
-
+                             
                             @if(isset($producto))
 
                             <div class="mt-3">
@@ -346,6 +299,195 @@
                             @endif
 
 
+                            <div class="anadir-outline">
+                                <x-label for="" class="label-form"  :value="__('Añadir Aplicaciones a Vehiculos:')" />
+                                
+
+                            
+
+                            <div class="d-flex justify-content-between">
+
+                                <!---
+
+
+                                    FIRST
+                                    --->
+
+                                    
+                                     <div class="mt-3">
+                                        <x-label for="marca" class="label-form"  :value="__('Marcas')" />
+                                        <select name="marca" id="marca" class="shadow-sm border-gray-300 rounded-md w-full">
+                                            <option value="0"> Selecciona una Marca</option>
+                                            @foreach($marcas as $marca)
+
+                                                <option value="{{ $marca->id }}"> {{ ucwords($marca->nombre) }} </option>
+                                            
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+                                <!--- 
+
+                                    SECOND
+
+
+                                -->
+
+ 
+                                    <div class="mt-3">
+                                        <x-label for="modelo" class="label-form"  :value="__('Modelos')" />
+                                        <select name="modelo" id="modelo" class="shadow-sm border-gray-300 rounded-md w-full text-capitalize">
+                                            <option value="0"> Selecciona un Modelo</option>
+
+                                        </select>
+                                    </div>
+
+                                    
+                            </div>
+
+
+                            <div class="d-flex justify-content-between">
+                                    <div class="mt-3">
+                                        <x-label for="version" class="label-form"  :value="__('Versiones')" />
+                                        <select name="version" id="version" class="shadow-sm border-gray-300 rounded-md w-full">
+                                            <option value="0"> Selecciona una Versión</option>
+
+                                        </select>
+                                    </div>
+                                    <div  class="mt-3">
+                                        <x-button-1 class="buttom mt-3" id="anadir-relacion">
+                                        {{ __('Añadir') }}
+                                        </x-button-1>
+                                    </div>
+                            </div>
+
+
+                            </div>
+
+
+                            <style type="text/css">
+
+                                .grid-3{
+                                    display: grid;
+                                    grid-template-columns: repeat(2, 1fr);
+                                    grid-gap: 10px;
+                                    grid-auto-rows: minmax(100px, auto);
+                                }
+
+                                .center-colunm{
+                                    display: flex;
+                                    flex-direction: column;
+                                    justify-content: center;
+                                    align-items: center;
+                                }
+                                
+                                .anadir-outline{
+                                    padding: 10px;
+                                    border-radius: 4px;
+                                    border: 1px solid #ddd;
+                                    margin-top: 1rem;
+                                }
+                            </style>
+
+                            <div class="anadir-outline overflow-auto">
+                                    
+                                 <div>
+                                    <x-label for="" class="label-form"  :value="__('Aplicaciones a Vehiculos:')" />
+                                </div>
+
+                                <div class="w-full">
+
+                                <table id="aplicaciones" class="w-full"> 
+
+                                    <!--- HEAD -->
+
+                                    <thead class="border-bottom mb-3">
+                                        <tr>
+                                            <td>
+                                                <x-label for="" class="label-form"  :value="__('Marca')" />
+                                            </td>
+                                            <td>
+                                                 <x-label for="" class="label-form"  :value="__('Modelo')" />
+                                            </td>
+                                            <td>
+                                                <x-label for="" class="label-form"  :value="__('Versión')" />
+                                                
+                                            </td>
+                                            <td>
+                                                <x-label for="" class="label-form"  :value="__('Acción')" />
+                                                
+                                            </td>
+                                        </tr>
+                                        
+                                        
+                                    </thead>
+
+                                    <!--- BODY -->
+
+                                    <tbody class="">
+
+                                      
+
+
+                                        @if(isset($producto))
+
+                                        @foreach($producto->vehiculos as $vehiculo)
+
+                                         <tr>
+                                            <td hidden>
+                                                 <input type="text" name="relacion[]" value="{{ $vehiculo->id }}">
+                                            </td>
+                                            <td>
+                                                {{ ucwords($vehiculo->marca->nombre) }}
+                                            </td>
+                                            <td>
+                                                {{ ucwords($vehiculo->modelo->nombre) }}
+                                            </td>
+                                            <td>
+                                                {{ $vehiculo->tipo_modelo }}
+                                            </td>
+                                            <td>
+                                            
+                                            <a class="btn btn-danger btn-icon-split" onclick="eliminar_relacion(this)">
+                                                <span class="icon text-white-50">
+                                                    <i class="fas fa-trash"></i>
+                                                </span>
+                                                <!-- <span class="text">Eliminar</span> -->
+                                            </a>
+                                                            
+                                            </td>
+                                        </tr>
+
+                                        @endforeach
+
+                                        
+
+                                        @else
+
+                                            <tr>
+                                                <td colspan="3">
+                                                    Sin Vehículos relacionados
+                                                </td>
+                                            </tr>
+                                        @endif
+
+                                        
+                                        
+                                    </tbody>
+                                    
+                                </table>
+
+                                </div>
+
+                                <style type="text/css">
+                                    #aplicaciones td {
+                                        padding: 10px;
+                                    }
+
+                                </style>
+
+
+                            </div>
                             <x-button class="buttom-submit mt-3">
                                 {{ __('Guardar') }}
                             </x-button>
@@ -398,9 +540,7 @@
 
                     $('#modelo').html(contenido);
 
-                    $('#ano').html('<option value="0"> Selecciona un Año</option>');
-
-                     $('#version').html('<option value="0"> Selecciona una Versión</option>');
+                    $('#version').html('<option value="0"> Selecciona una Versión</option>');
                 }
             });
 
@@ -414,60 +554,43 @@
             var modelo = $('#modelo').val();
 
             $.ajax({
-                url: '/modelos/'+modelo+'/anos',
+                url: '/modelos/'+modelo+'/versiones',
                 method: 'GET',
                 data: {},
                 success: function(response){
                     
-                //    console.log(response);
-
-                    var contenido = '<option value="0"> Selecciona un Año</option>';
-
-                    $.each(response['anos'], function(key, ano){
-
-                        contenido += '<option value="'+ano['id']+'">'+ano['nombre']+'</option>';
-                    
-                    });
-
-                    $('#ano').html(contenido);
-
-                    $('#version').html('<option value="0"> Selecciona una Versión</option>');
-
-                }
-            });
-
-        });
-
-
-
-         $('#ano').on('change', function(){
-
-            //console.log($('#marca').val());
-            var ano = $('#ano').val();
-
-            $.ajax({
-                url: '/anos/'+ano+'/versiones',
-                method: 'GET',
-                data: {},
-                success: function(response){
-                    
-                //    console.log(response);
+                    console.log(response);
 
                     var contenido = '<option value="0"> Selecciona una Versión</option>';
 
                     $.each(response['versiones'], function(key, version){
 
-                        contenido += '<option value="'+version['id']+'">'+version['nombre']+'</option>';
+                        contenido += '<option value="'+version['id']+'">'+version['tipo_modelo']+'</option>';
                     
                     });
 
                     $('#version').html(contenido);
 
+                    
+
                 }
             });
 
         });
-        
+
+        $('#aplicaciones').on('click', 'a', function(e){
+            e.preventDefault();
+            $(this).parent().parent().remove();
+        });
+
+
+        $('#anadir-relacion').on('click', function(e){
+            e.preventDefault();
+            let row = '<tr class=""><td hidden><input type="text" name="relacion[]" value="'+$('#version option:selected').val()+'"> </td><td>'+$('#marca option:selected').text()+'</td><td class="text-capitalize">'+$('#modelo option:selected').text()+'</td><td>'+$('#version option:selected').text()+'</td><td><a class="btn btn-danger btn-icon-split"><span class="icon text-white-50"><i class="fas fa-trash"></i></span><!-- <span class="text">Eliminar</span> --></a></td></tr>';
+
+            $('#aplicaciones tbody').append(row);
+        });
+
         
         
     });
