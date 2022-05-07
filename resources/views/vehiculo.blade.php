@@ -100,7 +100,7 @@
                                 <tr>
                                     <td>
 
-                                        @if(count($filtros_aire) > 0)
+                                        @if(count($filtros_aire) > $i)
                                             <a href="">
                                                 <p>{{ $filtros_aire->get($i)->sku }}</p>
                                                 
@@ -115,7 +115,7 @@
                                     </td>
                                     <td>
 
-                                        @if(count($filtros_aceite) > 0)
+                                        @if(count($filtros_aceite) > $i)
                                             <a href="">
                                                 <p>{{ $filtros_aceite->get($i)->sku }}</p>
                                                 
@@ -130,7 +130,7 @@
                                     </td>
                                     <td>
 
-                                        @if(count($filtros_gasolina) > 0)
+                                        @if(count($filtros_gasolina) > $i)
                                             <a href="">
                                                 <p>{{ $filtros_gasolina->get($i)->sku }}</p>
                                                 
@@ -144,7 +144,8 @@
                                         @endif
                                     </td>
                                     <td>
-                                        @if(count($filtros_habitaculo) > 0)
+                                       
+                                        @if(count($filtros_habitaculo) > $i)
                                             <a href="">
                                                 <p>{{ $filtros_habitaculo->get($i)->sku }}</p>
                                                 
@@ -160,7 +161,8 @@
 
                                     <td>
 
-                                        @if(count($filtros_otros) > 0)
+                                        @if(count($filtros_otros) > $i)
+
                                             <a href="">
                                                 <p>{{ $filtros_otros->get($i)->sku }}</p>
                                                 
@@ -168,6 +170,7 @@
                                         class="img-table">                  
                                             </a>              
                                         @else
+                                       
                                             <p>
                                                 Sin filtro de este tipo
                                             </p>

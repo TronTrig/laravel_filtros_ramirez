@@ -40,7 +40,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/dashboard">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/dash-productos">
                 <div class="sidebar-brand-icon">
                     <img src="/images/icons/favi.png" alt="IMG-LOGO" style="width: 60px;">
                 </div>
@@ -52,7 +52,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="/dashboard">
+                <a class="nav-link" href="/dash-productos">
                     <i class="fas fa-fw fa-home"></i>
                     <span>Inicio</span></a>
             </li>

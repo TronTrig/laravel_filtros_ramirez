@@ -61,8 +61,8 @@
                                             @break
 
                                         @case(5)
-                                            <span class="filter-icon-wrap" class="filter-icon">
-                                                <img src="/images/icons/b_filtros_otros.png">
+                                            <span class="filter-icon-wrap">
+                                                <img src="/images/icons/b_filtros_otros.png" class="filter-icon">
                                             </span>
                                             @break
 

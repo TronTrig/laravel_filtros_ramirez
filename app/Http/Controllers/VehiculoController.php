@@ -130,6 +130,15 @@ class VehiculoController extends Controller
     {
         //
 
+        $detach = [];
+
+        foreach(Vehiculo::find($id)->productos as $producto){
+
+            $detach[] = $producto->id;    
+        }
+
+        Vehiculo::find($id)->productos()->detach($detach);
+
         Vehiculo::destroy($id);
 
         $context = [
@@ -145,30 +154,43 @@ class VehiculoController extends Controller
     {
 
         $vehiculo = Vehiculo::find($id);
-        $productos_vehiculo = $vehiculo->productos;
-        $filtros_aire = $productos_vehiculo->where('subcategoria_id', '=', '1');
-        $filtros_aceite = $productos_vehiculo->where('subcategoria_id', '=', '2');
-        $filtros_gasolina = $productos_vehiculo->where('subcategoria_id', '=', '3');
-        $filtros_habitaculo = $productos_vehiculo->where('subcategoria_id', '=', '4');
-        $filtros_otros = $productos_vehiculo->where('subcategoria_id', '=', '5');
+        $productos_vehiculo = $vehiculo->productos();
 
-        $numero_de_elementos = count($filtros_aire);
+        $filtros_aire = $vehiculo->productos()->where('subcategoria_id', '=', '1')->get();
+
+        $filtros_aceite = $vehiculo->productos()->where('subcategoria_id', '=', '2')->get();
+        $filtros_gasolina = $vehiculo->productos()->where('subcategoria_id', '=', '3')->get();
+        $filtros_habitaculo = $vehiculo->productos()->where('subcategoria_id', '=', '4')->get();
+        $filtros_otros = $vehiculo->productos()->where('subcategoria_id', '=', '5')->get();
+
+       
+
+        $numero_de_elementos = $filtros_aire->count();
+        
         $subcategoria_con_mas_elementos = $filtros_aire;
 
-        if ($numero_de_elementos < count($filtros_aceite)) {
+        if ($numero_de_elementos < $filtros_aceite->count()) {
+            $numero_de_elementos = $filtros_aceite->count();
             $subcategoria_con_mas_elementos = $filtros_aceite;
         }
 
-        if ($numero_de_elementos < count($filtros_gasolina)) {
+
+        if ($numero_de_elementos < $filtros_gasolina->count()) {
+            $numero_de_elementos = $filtros_gasolina->count();
             $subcategoria_con_mas_elementos = $filtros_gasolina;
         }
         
-        if ($numero_de_elementos < count($filtros_habitaculo)) {
+        if ($numero_de_elementos < $filtros_habitaculo->count()) {
+            $numero_de_elementos = $filtros_habitaculo->count();
             $subcategoria_con_mas_elementos = $filtros_habitaculo;
-        }
 
-        if ($numero_de_elementos < count($filtros_otros)) {
+        }
+        
+
+        if ($numero_de_elementos < $filtros_otros->count()) {
+            $numero_de_elementos = $filtros_otros->count();
             $subcategoria_con_mas_elementos = $filtros_otros;
+
         }
 
         $context = [

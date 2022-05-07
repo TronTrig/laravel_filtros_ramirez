@@ -34,7 +34,7 @@ use App\Models\Vehiculo;
 
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('dash-productos');
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
