@@ -147,4 +147,15 @@ class MarcaController extends Controller
             'modelos' => $modelos
         ]);
     }
+
+    public function get_marcas_by_tipos(String $tipo)
+    {
+        $marcas = Marca::select('id', 'nombre')->
+                    where('tipo', '=', $tipo)
+                    ->orderBy('nombre', 'asc')
+                    ->get();
+        return response()->json([
+            'marcas' => $marcas;
+        ]);
+    }
 }

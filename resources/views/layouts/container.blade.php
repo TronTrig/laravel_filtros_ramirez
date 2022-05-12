@@ -376,6 +376,12 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
+
+
+        $(function(){
+            $('.nav-item .nav-link:first-child').trigger('click');
+        });     
+        
     </script>
 
 
