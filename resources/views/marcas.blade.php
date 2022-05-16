@@ -12,7 +12,7 @@
 </div>
 
 
-<div class="row isotope-grid" style="position: relative; height: 1717.38px;">
+<div class="row isotope-grid" style="position: relative; height: 1717.38px; margin-bottom: 100px;">
 
 
 @if(isset($marcas))
@@ -26,7 +26,7 @@
 
 <div class="block1 wrap-pic-w" style="background-color: white;">
 <img src="/images/marcas/{{ $marca->id}}/{{ $marca->id}}.jpg" alt="IMG-BANNER" style="margin-top: 90px;">
-<a href="/marca/{{ $marca->id }}/modelos" class=" ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+<a href="/marca/{{ $marca->id }}/modelos/aplicacion" class=" ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
 <div class="block1-txt-child1 flex-col-l ctc-br">
 <span class="block1-name ltext-102 trans-04 p-b-8">
 {{ ucwords($marca->nombre) }}
@@ -43,14 +43,16 @@
 
     @endforeach
 
-@else
+@endif
 
+@if(count($marcas) == 0)
 <div style="margin: auto; text-align: center;">
     <h3>
         No hay resultados
     </h3>
 </div>
 @endif
+
 
 </div>
 

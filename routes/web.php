@@ -204,9 +204,13 @@ Route::get('/ver-vehiculo/{id}', [VehiculoController::class, 'ver_prodcutos_vehi
 
 Route::get('/tipos/{tipo_nombre}/marcas', [MarcaController::class, 'get_marcas_by_tipos']);
 
-Route::get('/tipo/{tipo_nombre}/marcas', [MarcaController::class, 'get_marcas_by_tipos_pagina']);
 
-Route::get('/marca/{marca_id}/modelos', [MarcaController::class, 'get_models_pagina']);
+
+
+Route::get('/tipo/{tipo_nombre}/marcas/{tipo_busqueda}', [MarcaController::class, 'get_marcas_by_tipos_pagina']);
+
+
+Route::get('/marca/{marca_id}/modelos/{tipo_busqueda}', [MarcaController::class, 'get_models_pagina']);
 
 Route::get('/modelo/{modelo_id}/versiones', [VehiculoController::class, 'get_versiones_by_model_pagina']);
 

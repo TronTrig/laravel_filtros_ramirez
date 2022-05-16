@@ -201,7 +201,7 @@ class MarcaController extends Controller
     }
 
 
-    public function get_marcas_by_tipos_pagina($tipo_nombre)
+    public function get_marcas_by_tipos_pagina($tipo_nombre, $tipo_busqueda)
     {   
         //dd($tipo_nombre);
 
@@ -222,6 +222,7 @@ class MarcaController extends Controller
         $context = [
             'marcas' => $marcas,
             'categorias' => Categoria::all(),
+            'tipo_busqueda' => $tipo_busqueda
         ];
 
         return view('marcas', $context);
@@ -229,16 +230,37 @@ class MarcaController extends Controller
 
 
 
-     public function get_models_pagina($marca_id)
+     public function get_models_pagina($marca_id, $tipo_busqueda)
     {   
-        $modelos = Modelo::where('marca_id', $marca_id)->get();
+        
 
-        $context = [
-            'modelos' => $modelos,
-            'categorias' => Categoria::all(),    
-                    
-        ];
+        if($tipo_busqueda == 'vehiculo'){
+            $modelos = Modelo::where('marca_id', $marca_id)->get();
+
+            $context = [
+                'modelos' => $modelos,
+                'categorias' => Categoria::all(),    
+            ];
 
         return view('modelos', $context);
+
+        }elseif ($tipo_busqueda == 'aplicacion') {
+
+
+
+            $modelos = Modelo::where('marca_id', $marca_id)->get();
+
+            $context = [
+                'modelos' => $modelos,
+                'categorias' => Categoria::all(),    
+            ];
+
+        return view('modelos', $context);
+
+
+
+        }
+
+        
     }
 }
