@@ -12,7 +12,7 @@
 
 <div class="block1 wrap-pic-w">
 <img src="/images/productos/filtro.jpg" alt="IMG-BANNER">
-<a href="/filtros/de-aceite" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+<a href="/productos/filtros/de-aceite" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
 <div class="block1-txt-child1 flex-col-l ctc-br">
 <span class="block1-name ltext-102 trans-04 p-b-8">
 Filtros De Aceite
@@ -39,7 +39,7 @@ Compra Ahora
 
 <div class="block1 wrap-pic-w">
 <img src="/images/productos/filtro-aire-wix.jpg" alt="IMG-BANNER">
-<a href="/filtros/de-aire" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+<a href="/productos/filtros/de-aire" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
 <div class="block1-txt-child1 flex-col-l ctc-br">
 <span class="block1-name ltext-102 trans-04 p-b-8">
 Filtros De Aire
@@ -66,7 +66,7 @@ Compra Ahora
 
 <div class="block1 wrap-pic-w">
 <img src="/images/productos/filtro-combustible-wix.jpg" alt="IMG-BANNER">
-<a href="/filtros/de-combustible" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+<a href="/productos/filtros/de-combustible" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
 <div class="block1-txt-child1 flex-col-l ctc-br">
 <span class="block1-name ltext-102 trans-04 p-b-8">
 Filtros De Combustible
@@ -94,7 +94,7 @@ Compra Ahora
 
 <div class="block1 wrap-pic-w">
 <img src="/images/productos/kit-filtros.jpg" alt="IMG-BANNER">
-<a href="/filtros/promocion-kit-filtros" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+<a href="/productos/filtros/promocion-kit-filtros" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
 <div class="block1-txt-child1 flex-col-l ctc-br">
 <span class="block1-name ltext-102 trans-04 p-b-8">
 Promoción Kits De Filtros
@@ -186,7 +186,7 @@ Compra Ahora
 
 		<div class="asi-categoria">
 			<div class="asi-label" value="filters">
-				<a href="{{ url('') }}/productos/{{ Str::slug($categoria->nombre) }}"> {{ ucwords($categoria->nombre) }}</a><i class="fa fa-chevron-down"></i>
+				<a href="/productos/{{ Str::slug($categoria->nombre) }}"> {{ ucwords($categoria->nombre) }}</a><i class="fa fa-chevron-down"></i>
 			</div>
 			<ul class="dropdown-subcategories">
 
@@ -194,7 +194,7 @@ Compra Ahora
 
 
 				<li class="subcategorie">
-					<a href="{{ url('') }}/productos/{{ Str::slug($categoria->nombre) }}/{{ Str::slug($subcategoria->nombre) }}">{{ucwords($subcategoria->nombre)}}</a>
+					<a href="/productos/{{ Str::slug($categoria->nombre) }}/{{ Str::slug($subcategoria->nombre) }}">{{ucwords($subcategoria->nombre)}}</a>
 				</li>
 
 				@endforeach
@@ -230,59 +230,6 @@ Compra Ahora
 
 
 <div style="width: 100%;">
-<!--
-	<div class="bck-result-filter">
-		<div class="result-filter-layout">
-			<div class="result-filter-fieldset">
-				<label>
-					MOSTRAR:
-				</label>
-				<select>
-					<option>
-						12 Productos 
-					</option>
-					<option>
-						18 Productos 
-					</option>
-					<option>
-						24 Productos 
-					</option>
-					<option>
-						30 Productos 
-					</option>
-				</select>
-			</div>
-
-			<div class="result-filter-fieldset">
-				<label>
-					ORDENAR POR:
-				</label>
-				<select>
-					<option>
-						Más Nuevos
-					</option>
-					<option>
-						Más Vendidos
-					</option>
-					<option>
-						De la A a la Z
-					</option>
-					<option>
-						De la Z a la A
-					</option>
-					<option>
-						Precio: Descendente
-					</option>
-					<option>
-						Precio: Ascendente
-					</option>
-
-				</select>
-			</div>
-		</div>
-	</div>
-
--->
 
 <div class="row isotope-grid" style="position: relative; height: 1717.38px;">
 
@@ -296,14 +243,18 @@ Compra Ahora
 
 	<div class="block2">
 	<div class="block2-pic hov-img0">
-	<img src="{{ url('') }}/images/productos/{{ $producto->id }}/1.jpg" alt="IMG-PRODUCT">
-	<a href="{{ url('') }}/#" class="block2-btn flex-c-m stext-103 cl3 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1" value="{{ $producto->id }}" files="{{ $producto->number_imgs }}"> 
+	<img src="/images/productos/{{ $producto->id }}/1.jpg" alt="IMG-PRODUCT">
+	<a href="" class="block2-btn flex-c-m stext-103 cl3 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1" value="{{ $producto->id }}" files="
+		@if(!empty($producto->number_imgs))
+			{{ $producto->number_imgs }}
+		@endif
+		"> 
 	Vista Rápida
 	</a>
 	</div>
 	<div class="block2-txt flex-w flex-t p-t-14">
 	<div class="block2-txt-child1 flex-col-l ">
-	<a href="{{ url('') }}/product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+	<a href="/product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
 	{{ $producto->nombre }}
 	</a>
 	<span class="stext-105 cl3">
@@ -311,7 +262,7 @@ Compra Ahora
 	</span>
 	</div>
 	<div class="block2-txt-child2 flex-r p-t-3">
-	<a href="{{ url('') }}/#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
+	<a href="/#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
 	<!-- <img class="icon-heart1 dis-block trans-04" src="{{ url('') }}/images/icons/xicon-heart-01.png.pagespeed.ic.kGwqiVk_BS.png" alt="ICON">
 	<img class="icon-heart2 dis-block trans-04 ab-t-l" src="{{ url('') }}/images/icons/xicon-heart-02.png.pagespeed.ic.-OFifoFj6L.png" alt="ICON">-->
 	</a>

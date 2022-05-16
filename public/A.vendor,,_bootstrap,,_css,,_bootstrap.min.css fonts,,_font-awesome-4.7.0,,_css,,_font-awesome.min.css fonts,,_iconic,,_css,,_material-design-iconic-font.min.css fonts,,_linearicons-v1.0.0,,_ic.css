@@ -1241,6 +1241,11 @@ footer a:hover{
 	    padding-left: 7px;
 	}
 
+		.buscador-base .bf-label.title{
+	    font-size: 28px;
+	}
+
+	
 	.buscador-base .buscador-layout{
         width: 100%;
 	    display: flex;
@@ -1352,6 +1357,9 @@ footer a:hover{
 	    padding-top: 7px;
 	    padding-left: 7px;
 	}
+
+
+
 
 	.buscador-base .buscador-layout{
 	    display: flex;
@@ -1545,7 +1553,7 @@ footer .fa:hover
         display: flex;
 	    justify-content: space-evenly;
 	    align-items: baseline;
-	    width: 80%;
+	    width: 70%;
 	}
 
 	#field-codigo{

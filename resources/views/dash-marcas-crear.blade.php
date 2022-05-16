@@ -16,9 +16,25 @@
                     
                     <div style="width: 60%; margin: auto;">
                         
-                      
-                        <form method="POST" action="/marcas" name="crear" id="crear" id="crear">
-                           @csrf
+        @if(empty($marca))
+    
+
+                <form method="POST" action="{{ route('marcas.store') }}" name="crear" id="crear" id="crear"  enctype="multipart/form-data">
+        @else
+
+            @if($action == 'edit')
+
+                     <form method="POST" action="{{ route('marcas.update', ['marca' => $marca->id]) }}" name="crear" id="crear" id="crear"  enctype="multipart/form-data">
+        
+                @method('PUT')
+                       
+            @endif
+
+        @endif
+             @csrf
+           
+                        
+                           
                            @if(isset($marca))
 
                            <div>
@@ -34,6 +50,48 @@
                                 <x-input id="nombre" class="input-form block mt-1 w-full" type="text" name="nombre" :value="old('nombre')" required autofocus placeholder=""/>
                             </div>
                             @endif
+
+
+        @if($action == 'edit')
+
+            <div class="form-group">
+                <label for="current_img">Imagen Actual:</label> 
+
+                <a href="/images/marcas/{{ $marca->id }}/{{ $marca->id }}.jpg">
+                 <img class="w-100" src="/images/marcas/{{ $marca->id }}/{{ $marca->id }}.jpg" alt="" style="width:250px; height:250px;">   
+                </a>
+                
+            </div>
+
+             <div>
+                                 <x-label for="imagen" class="label-form"  :value="__('Imagen:')" />
+                                 <p>
+                                     Formato aceptado: .jpg
+                                 </p>
+                                 @if(isset($producto))
+
+                                 <p style="color:red">
+                                     La imágen anterior será eliminada.
+                                 </p>
+
+                                 @endif
+                                     
+                                
+                                 <input type="file" id="imagen"name="imagen" accept=".jpg" >
+                            </div>
+            @else
+
+
+                            <div class="mt-3">
+                                 <x-label for="imagen" class="label-form"  :value="__('Imagen nueva:')" />
+                                 <p>
+                                     Formato aceptado: .jpg
+                                 </p>
+                                
+                                 <input type="file" name="imagen" accept=".jpg"  >
+                            </div>
+            
+            @endif
 
                             <x-button class="buttom-submit">
                                 {{ __('Guardar') }}
@@ -68,7 +126,7 @@
 @if(isset($marca))
 
     <script type="text/javascript">
-        $(function(){
+    /*   $(function(){
 
             function update(id)
             {
@@ -93,7 +151,7 @@
                 update({{ $marca->id }});
 
             });
-        });
+        });*/
     </script>
 
 @endif

@@ -217,4 +217,14 @@ class VehiculoController extends Controller
             'versiones' => Vehiculo::where('modelo_id', '=', $id)->get(),
         ]);
     }
+
+    public function get_versiones_by_model_pagina( Request $request, $id)
+    {
+
+        $context = [
+            'vehiculos' => Vehiculo::where('modelo_id', '=', $id)->get(),
+            'categorias' => Categoria::all(),
+        ] ;
+        return view( 'vehiculos', $context );
+    }
 }

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Marca;
 use App\Models\Modelo;
+use App\Models\Categoria;
+use Illuminate\Support\Facades\Storage;
 
 class MarcaController extends Controller
 {
@@ -33,7 +35,7 @@ class MarcaController extends Controller
     {
         //
         $context = [
-
+            'action' => 'nuevo',
         ];
         return view('dash-marcas-crear', $context);
     }
@@ -48,17 +50,24 @@ class MarcaController extends Controller
     {
         //
 
-        Marca::create([
+        $new_id = Marca::create([
 
             'nombre' => $request->post('nombre')
 
         ]);
 
-        $marcas = Marca::all();
+        if($new_id){
 
+            $nombre = $new_id->id.'.jpg' ;
+            $request->file('imagen') ->storeAs('/images/marcas/'.$new_id->id, $nombre , 'public');
+            
+        }
+
+        $marcas = Marca::all();
         $context = [
 
-            'marcas' => $marcas
+            'marcas' => $marcas,
+
 
         ];
 
@@ -91,7 +100,8 @@ class MarcaController extends Controller
 
         $context = [
 
-            'marca' => $marca
+            'marca' => $marca,
+            'action' => 'edit',
 
         ];
 
@@ -112,6 +122,19 @@ class MarcaController extends Controller
         Marca::find($id)->update([
             'nombre' => $request->post('nombre')
         ]);
+
+         if (!empty($request->file('imagen'))) {
+                
+                Storage::disk('public')->deleteDirectory('images/marcas/'.$id);
+
+            if($id){
+
+                $nombre = $id.'.jpg' ;
+                $request->file('imagen') ->storeAs('/images/marcas/'.$id, $nombre , 'public');
+                
+            }
+
+        }
         $marcas = Marca::all();
         $context = [
             'marcas' => $marcas
@@ -130,7 +153,7 @@ class MarcaController extends Controller
     {
         //
         Marca::destroy($id);
-
+        Storage::disk('public')->deleteDirectory('images/marcas/'.$id);
         $marcas = Marca::all();
 
         $context = [
@@ -148,14 +171,74 @@ class MarcaController extends Controller
         ]);
     }
 
-    public function get_marcas_by_tipos(String $tipo)
-    {
-        $marcas = Marca::select('id', 'nombre')->
-                    where('tipo', '=', $tipo)
-                    ->orderBy('nombre', 'asc')
+    public function get_marcas_by_tipos($tipo_nombre)
+    {   
+        //dd($tipo_nombre);
+
+        //Este codigo hace un query para obtener el id y nombre de las marcas
+        //Con vehiculos registrados 
+        //Va a ser usado en el Buscador de Filtros
+        /*$marcas = Marca::select('marcas.id', 'marcas.nombre')
+                    ->join('vehiculos', 'marcas.id', '=', 'vehiculos.marca_id')
+                    ->groupBy('marcas.id')
+                    ->get();*/
+
+        $marcas = Marca::select('marcas.id', 'marcas.nombre')
+                    ->join('vehiculos', 'marcas.id', '=', 'vehiculos.marca_id')
+                    ->where('vehiculos.tipo', '=', $tipo_nombre)
+                    ->groupBy('marcas.id')
                     ->get();
+
+
+                    
+        /*$marcas = Marca::select('id', 'nombre')->
+                    where('tipo', '=', $tipo_nombre)
+                    ->orderBy('nombre', 'asc')
+                    ->get();*/
         return response()->json([
-            'marcas' => $marcas;
+            'marcas' => $marcas
         ]);
+    }
+
+
+    public function get_marcas_by_tipos_pagina($tipo_nombre)
+    {   
+        //dd($tipo_nombre);
+
+        //Este codigo hace un query para obtener el id y nombre de las marcas
+        //Con vehiculos registrados 
+        //Va a ser usado en el Buscador de Filtros
+        /*$marcas = Marca::select('marcas.id', 'marcas.nombre')
+                    ->join('vehiculos', 'marcas.id', '=', 'vehiculos.marca_id')
+                    ->groupBy('marcas.id')
+                    ->get();*/
+
+        $marcas = Marca::select('marcas.id', 'marcas.nombre')
+                    ->join('vehiculos', 'marcas.id', '=', 'vehiculos.marca_id')
+                    ->where('vehiculos.tipo', '=', $tipo_nombre)
+                    ->groupBy('marcas.id')
+                    ->get();
+
+        $context = [
+            'marcas' => $marcas,
+            'categorias' => Categoria::all(),
+        ];
+
+        return view('marcas', $context);
+    }
+
+
+
+     public function get_models_pagina($marca_id)
+    {   
+        $modelos = Modelo::where('marca_id', $marca_id)->get();
+
+        $context = [
+            'modelos' => $modelos,
+            'categorias' => Categoria::all(),    
+                    
+        ];
+
+        return view('modelos', $context);
     }
 }

@@ -140,7 +140,7 @@ class ProductoController extends Controller
             
             $number_imgs = Storage::disk('public')->files('images/productos/'.$producto->id);
 
-            $producto->number_imgs = $number_imgs;
+            $producto->number_imgs = count($number_imgs);
         }
 
         return view('productos',[

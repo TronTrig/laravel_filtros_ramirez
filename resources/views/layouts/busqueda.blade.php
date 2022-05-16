@@ -119,13 +119,12 @@ Contacto
 @endauth
     
 @guest
-   <a href="" class="flex-c-m p-lr-10 trans-04">
+   <a href="{{ url('') }}/login" class="flex-c-m p-lr-10 trans-04">
 	Ingresar
 	</a>
-	<a href="" class="flex-c-m p-lr-10 trans-04">
+	<a href="{{ url('') }}/register" class="flex-c-m p-lr-10 trans-04">
 	Registrarse
 	</a>
-
 @endguest
 
 
@@ -310,10 +309,10 @@ Contacto
 @endauth
     
 @guest
-	<a href="" class="flex-c-m p-lr-10 trans-04">
+	<a href="{{ url('') }}/login" class="flex-c-m p-lr-10 trans-04">
 	Ingresar
 	</a>
-	<a href="" class="flex-c-m p-lr-10 trans-04">
+	<a href="{{ url('') }}/register" class="flex-c-m p-lr-10 trans-04">
 	Registrarse
 	</a>
 
@@ -457,11 +456,8 @@ Comprar
 </div>
 </div>
 
-<div style="width:100%; height:104px;">
-	
-</div>
 
-<div class="buscador-base bck-carb-fiber">
+<div class="buscador-base bck-carb-fiber" style="    margin-top: 104px;">
 	<style type="text/css">
 
 		@media screen and (min-width: 991px){
@@ -544,8 +540,8 @@ Comprar
 
 			@csrf
 			<div class="d-flex justify-content-between w-100 buscador-filtro-wrap-inside">
-				<div>
-					<label class="bf-label text-uppercase">Buscar Filtro</label>
+				<div class="w-100 d-flex justify-content-center align-items-center">
+					<label class="bf-label title text-uppercase">Buscar Filtro</label>
 				</div>
 				<div class="wrap-radio-icons-wrap">
 					<div class="radio-icons-wrap">
@@ -632,6 +628,47 @@ Comprar
 			<script type="text/javascript">
 				$(function(){
 
+					$('.buscador-filtro').find('[name=bf-tipo]').on('click', function(e){
+
+
+						$.ajax({
+							url: '/tipos/'+$(this).val()+'/marcas',
+							method: 'GET',
+							data: {
+
+							},
+							success: function(response){
+								
+
+									$('#bf-modelo').attr('value', 0);
+									$('#bf-modelo').parent().find('.bf-select').html('Seleccione un Modelo <i class="fa fa-chevron-down"></i>');
+
+									$('#bf-marca').attr('value', 0);
+									$('#bf-marca').parent().find('.bf-select').html('Seleccione una Marca  <i class="fa fa-chevron-down"></i>');
+
+									drop_down = $('#drop-down-marca').find('ul');
+
+									ul_content = '';
+
+									
+									$.each(response['marcas'], function(key, value){
+										ul_content += '<li class="li-marca"><span class="drop-li-marca" field="bf-marca" value="'+value["id"]+'" style="text-transform:capitalize;">'+value["nombre"]+'</span></li>';
+
+									//	console.log(value);
+									});
+
+									if (response['marcas'].length == 0) {
+										console.log(response['marcas'].length );
+										ul_content += '<li class="li-marca"><span class="drop-li-marca" field="bf-marca"  style="text-transform:capitalize;">Sin Marcas</span></li>';
+									}
+
+											
+
+								drop_down.html(ul_content);
+							}
+						});
+					});
+
 					$('.buscador-filtro ').find('.radio-icons-wrap').on('click', function(e){
 						e.stopPropagation();
 
@@ -657,7 +694,7 @@ Comprar
 		<div class="w-100 buscador-filtro-wrap-fieldset">
 
 
-				
+			
 			<fieldset id="field-codigo">
 				<input type="text" name="bf-codigo" id="bf-codigo" placeholder=" Introducir Referencia Del Filtro" style="" class="text-uppercase">
 			</fieldset>
@@ -674,17 +711,14 @@ Comprar
 					Seleccione una Marca <i class="fa fa-chevron-down"></i>
 				</div>
 				<input type="text" name="bf-marca" id="bf-marca" value="0">
-				<div class="drop-down no-display">
+				<div class="drop-down no-display" id="drop-down-marca">
 					<ul>
 
-						@foreach($marcas as $marca)
-
-							<li class="li-marca">
-								<span class="drop-li-marca" field="bf-marca" value="{{ $marca->id }}">								{{ ucwords($marca->nombre) }}
-								</span>
-							</li>
-
-						@endforeach
+						<li class="li-marca">
+							<span class="drop-li-marca text-uppercase" field="bf-marca" value="0">	
+								SIN MARCA
+							</span>
+						</li>
 
 
 					</ul>
@@ -787,7 +821,7 @@ Comprar
 						//console.log($('#bf-modelo').parent().find('.bf-select').html('Modelo <i class="fa fa-chevron-down"></i>'));
 
 						$('#bf-modelo').attr('value', 0);
-						$('#bf-modelo').parent().find('.bf-select').html('Seleccione una Modelo  <i class="fa fa-chevron-down"></i>');
+						$('#bf-modelo').parent().find('.bf-select').html('Seleccione un Modelo <i class="fa fa-chevron-down"></i>');
 
 						$('#bf-ano').attr('value', 0);
 						$('#bf-ano').parent().find('.bf-select').html('Año <i class="fa fa-chevron-down"></i>');
@@ -891,7 +925,6 @@ Administración
 		</a>
 	</li>	
 </ul>
-
 </div>
 <div class="col-sm-6 col-lg-4 p-b-50">
 <h4 class="  p-b-30">
