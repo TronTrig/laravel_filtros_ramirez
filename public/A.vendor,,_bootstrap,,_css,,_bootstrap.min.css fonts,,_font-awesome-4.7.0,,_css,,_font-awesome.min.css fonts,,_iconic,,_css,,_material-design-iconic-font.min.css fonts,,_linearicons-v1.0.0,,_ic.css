@@ -1255,6 +1255,9 @@ footer a:hover{
 	    background-color: #a5c926;
 	    padding: 20px;
 	    border-radius: 4px;
+
+	        max-width: 1257px;
+    		margin: auto;
 	}
 
 	.buscador-base .buscador-filtro{

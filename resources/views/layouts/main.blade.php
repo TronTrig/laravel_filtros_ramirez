@@ -549,6 +549,7 @@ Compra Ahora
 		   margin: auto;
 		   width: 80%;
 		   grid-template-columns: repeat(4, 1fr);
+		       max-width: 1005px;
 		}
 
 		}
@@ -618,7 +619,7 @@ Compra Ahora
 
 			@csrf
 			<div class="d-flex justify-content-between w-100 buscador-filtro-wrap-inside">
-				<div class="w-100 d-flex justify-content-center align-items-center">
+				<div class="w-100 d-flex justify-content-center align-items-center p-r-25">
 					<label class="bf-label title text-uppercase">Buscar Filtro</label>
 				</div>
 				<div class="wrap-radio-icons-wrap">

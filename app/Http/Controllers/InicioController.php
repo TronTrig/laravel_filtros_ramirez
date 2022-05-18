@@ -52,14 +52,14 @@ class InicioController extends Controller
 
 
             $tipos = [
-                        [ 'nombre' => 'automóviles ligeros', 'nombre_img' => 'radio1.png'],
-                        [ 'nombre' => 'camiones y autobuses', 'nombre_img' => 'radio2.png'],
-                        [ 'nombre' => 'vehículos pesados y máquinas', 'nombre_img' => 'radio3.png'],
-                        [ 'nombre' => 'agrícolas', 'nombre_img' => 'radio4.png'],
-                        [ 'nombre' => 'marinos', 'nombre_img' => 'radio5.png'],
-                        [ 'nombre' => 'otros vehículos y máquinas', 'nombre_img' => 'radio6.png'],
-                        [ 'nombre' => 'motocicletas', 'nombre_img' => 'radio7.png'],
-                        [ 'nombre' => 'quads', 'nombre_img' => 'radio8.png'],
+                        [ 'nombre' => 'automóviles ligeros', 'nombre_img' => 'autos-ligeros.jpg'],
+                        [ 'nombre' => 'camiones y autobuses', 'nombre_img' => 'camion.png'],
+                        [ 'nombre' => 'vehículos pesados y máquinas', 'nombre_img' => 'maquinaria-pesada.jpg'],
+                        [ 'nombre' => 'agrícolas', 'nombre_img' => 'tractor.png'],
+                        [ 'nombre' => 'marinos', 'nombre_img' => 'marinos.jpg'],
+                        [ 'nombre' => 'otros vehículos y máquinas', 'nombre_img' => 'otros.jpg'],
+                        [ 'nombre' => 'motocicletas', 'nombre_img' => 'motos.png'],
+                        [ 'nombre' => 'quads', 'nombre_img' => 'quads.jpg'],
                     ];
 
 

@@ -186,7 +186,7 @@ class MarcaController extends Controller
         $marcas = Marca::select('marcas.id', 'marcas.nombre')
                     ->join('vehiculos', 'marcas.id', '=', 'vehiculos.marca_id')
                     ->where('vehiculos.tipo', '=', $tipo_nombre)
-                    ->groupBy('marcas.id')
+                    ->groupBy('marcas.id', 'marcas.nombre')
                     ->get();
 
 
@@ -216,7 +216,7 @@ class MarcaController extends Controller
         $marcas = Marca::select('marcas.id', 'marcas.nombre')
                     ->join('vehiculos', 'marcas.id', '=', 'vehiculos.marca_id')
                     ->where('vehiculos.tipo', '=', $tipo_nombre)
-                    ->groupBy('marcas.id')
+                    ->groupBy('marcas.id', 'marcas.nombre')
                     ->get();
 
         $context = [
